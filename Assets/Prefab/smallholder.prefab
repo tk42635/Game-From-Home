@@ -14,11 +14,11 @@ GameObject:
   - component: {fileID: 6217277523767306859}
   - component: {fileID: 6217277523767306856}
   m_Layer: 0
-  m_Name: holder (7)
+  m_Name: smallholder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &6217277523767306772
 Transform:

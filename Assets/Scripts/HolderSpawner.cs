@@ -18,7 +18,7 @@ public class HolderSpawner : MonoBehaviour {
 
 	public void SpawnHolder () {
 		float x, y;
-		for (x = -11; x <= 11; x += 0.1f) {
+		for (x = -3; x <= 3; x += 0.1f) {
 			for (y = -4; y <= 4; y += 0.1f) {
 				GameObject holder_Obj = Instantiate (holder_Prefab);
 

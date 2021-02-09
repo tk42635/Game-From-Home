@@ -16,7 +16,7 @@ public class Holder : MonoBehaviour {
 			Vector3 pos = new Vector2 (Camera.main.ScreenToWorldPoint (Input.mousePosition).x, Camera.main.ScreenToWorldPoint (Input.mousePosition).y);
 			//Debug.Log(temp);
 			//Debug.Log(pos);
-			if (Vector2.Distance (pos, temp) < 1f) {
+			if (Vector2.Distance (pos, temp) < 0.5f) {
 				Destroy (gameObject);
 			}
 		}

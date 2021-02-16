@@ -3,8 +3,13 @@
 --- !u!129 &1
 PlayerSettings:
   m_ObjectHideFlags: 0
+<<<<<<< HEAD
   serializedVersion: 20
   productGUID: e8048a541d0ab7942a77f866120f34b8
+=======
+  serializedVersion: 22
+  productGUID: aa38a4d035d4cba4bbe26fd820b6c5e7
+>>>>>>> Terrain-elimination
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -13,7 +18,11 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
+<<<<<<< HEAD
   productName: Game From Home
+=======
+  productName: New Unity Project
+>>>>>>> Terrain-elimination
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -49,6 +58,11 @@ PlayerSettings:
   m_StereoRenderingPath: 0
   m_ActiveColorSpace: 0
   m_MTRendering: 1
+<<<<<<< HEAD
+=======
+  mipStripping: 0
+  numberOfMipsStripped: 0
+>>>>>>> Terrain-elimination
   m_StackTraceTypes: 020000000200000002000000020000000200000001000000
   iosShowActivityIndicatorOnLoading: -1
   androidShowActivityIndicatorOnLoading: -1
@@ -117,6 +131,10 @@ PlayerSettings:
   stadiaTargetFramerate: 0
   vulkanNumSwapchainBuffers: 3
   vulkanEnableSetSRGBWrite: 0
+<<<<<<< HEAD
+=======
+  vulkanEnablePreTransform: 0
+>>>>>>> Terrain-elimination
   vulkanEnableLateAcquireNextImage: 0
   m_SupportedAspectRatios:
     4:3: 1
@@ -132,6 +150,7 @@ PlayerSettings:
   xboxOneDisableKinectGpuReservation: 1
   xboxOneEnable7thCore: 1
   vrSettings:
+<<<<<<< HEAD
     cardboard:
       depthFormat: 0
       enableTransitionView: 0
@@ -157,6 +176,8 @@ PlayerSettings:
       lowOverheadMode: 0
       protectedContext: 0
       v2Signing: 1
+=======
+>>>>>>> Terrain-elimination
     enable360StereoCapture: 0
   isWsaHolographicRemotingEnabled: 0
   enableFrameTimingStats: 0
@@ -177,6 +198,10 @@ PlayerSettings:
     Standalone: 0
     iPhone: 0
     tvOS: 0
+<<<<<<< HEAD
+=======
+  overrideDefaultApplicationIdentifier: 1
+>>>>>>> Terrain-elimination
   AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 19
   AndroidTargetSdkVersion: 0
@@ -230,8 +255,13 @@ PlayerSettings:
   iOSLaunchScreeniPadFillPct: 100
   iOSLaunchScreeniPadSize: 100
   iOSLaunchScreeniPadCustomXibPath: 
+<<<<<<< HEAD
   iOSUseLaunchScreenStoryboard: 0
   iOSLaunchScreenCustomStoryboardPath: 
+=======
+  iOSLaunchScreenCustomStoryboardPath: 
+  iOSLaunchScreeniPadCustomStoryboardPath: 
+>>>>>>> Terrain-elimination
   iOSDeviceRequirements: []
   iOSURLSchemes: []
   iOSBackgroundModes: 0
@@ -249,9 +279,23 @@ PlayerSettings:
   iOSRequireARKit: 0
   iOSAutomaticallyDetectAndAddCapabilities: 1
   appleEnableProMotion: 0
+<<<<<<< HEAD
   clonedFromGUID: f918f204a65eb664ba9e5b39d533ff8e
   templatePackageId: com.unity.template.mobile2d@1.0.2
   templateDefaultScene: Assets/Scenes/SampleScene.unity
+=======
+  shaderPrecisionModel: 0
+  clonedFromGUID: f918f204a65eb664ba9e5b39d533ff8e
+  templatePackageId: com.unity.template.mobile2d@1.0.2
+  templateDefaultScene: Assets/Scenes/SampleScene.unity
+  useCustomMainManifest: 0
+  useCustomLauncherManifest: 0
+  useCustomMainGradleTemplate: 0
+  useCustomLauncherGradleManifest: 0
+  useCustomBaseGradleTemplate: 0
+  useCustomGradlePropertiesTemplate: 0
+  useCustomProguardFile: 0
+>>>>>>> Terrain-elimination
   AndroidTargetArchitectures: 1
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
@@ -269,6 +313,12 @@ PlayerSettings:
     height: 180
     banner: {fileID: 0}
   androidGamepadSupportLevel: 0
+<<<<<<< HEAD
+=======
+  AndroidMinifyWithR8: 0
+  AndroidMinifyRelease: 0
+  AndroidMinifyDebug: 0
+>>>>>>> Terrain-elimination
   AndroidValidateAppBundleSize: 1
   AndroidAppBundleSizeToValidate: 150
   m_BuildTargetIcons: []
@@ -320,6 +370,10 @@ PlayerSettings:
     tvOS: 1
   m_BuildTargetGroupLightmapEncodingQuality: []
   m_BuildTargetGroupLightmapSettings: []
+<<<<<<< HEAD
+=======
+  m_BuildTargetNormalMapEncoding: []
+>>>>>>> Terrain-elimination
   playModeTestRunnerEnabled: 0
   runPlayModeTestAsEditModeTest: 0
   actionOnDotNetUnhandledException: 1
@@ -329,12 +383,20 @@ PlayerSettings:
   cameraUsageDescription: 
   locationUsageDescription: 
   microphoneUsageDescription: 
+<<<<<<< HEAD
+=======
+  switchNMETAOverride: 
+>>>>>>> Terrain-elimination
   switchNetLibKey: 
   switchSocketMemoryPoolSize: 6144
   switchSocketAllocatorPoolSize: 128
   switchSocketConcurrencyLimit: 14
   switchScreenResolutionBehavior: 2
   switchUseCPUProfiler: 0
+<<<<<<< HEAD
+=======
+  switchUseGOLDLinker: 0
+>>>>>>> Terrain-elimination
   switchApplicationID: 0x01004b9000490000
   switchNSODependencies: 
   switchTitleNames_0: 
@@ -459,6 +521,10 @@ PlayerSettings:
   switchSocketInitializeEnabled: 1
   switchNetworkInterfaceManagerInitializeEnabled: 1
   switchPlayerConnectionEnabled: 1
+<<<<<<< HEAD
+=======
+  switchUseNewStyleFilepaths: 0
+>>>>>>> Terrain-elimination
   ps4NPAgeRating: 12
   ps4NPTitleSecret: 
   ps4NPTrophyPackPath: 
@@ -549,16 +615,34 @@ PlayerSettings:
   webGLAnalyzeBuildSize: 0
   webGLUseEmbeddedResources: 0
   webGLCompressionFormat: 0
+<<<<<<< HEAD
   webGLLinkerTarget: 1
   webGLThreadsSupport: 0
   webGLWasmStreaming: 0
   scriptingDefineSymbols: {}
+=======
+  webGLWasmArithmeticExceptions: 0
+  webGLLinkerTarget: 1
+  webGLThreadsSupport: 0
+  webGLDecompressionFallback: 0
+  scriptingDefineSymbols:
+    1: FLUVIOFX
+  additionalCompilerArguments: {}
+>>>>>>> Terrain-elimination
   platformArchitecture: {}
   scriptingBackend: {}
   il2cppCompilerConfiguration: {}
   managedStrippingLevel: {}
   incrementalIl2cppBuild: {}
+<<<<<<< HEAD
   allowUnsafeCode: 0
+=======
+  suppressCommonWarnings: 1
+  allowUnsafeCode: 0
+  useDeterministicCompilation: 1
+  useReferenceAssemblies: 1
+  enableRoslynAnalyzers: 1
+>>>>>>> Terrain-elimination
   additionalIl2CppArgs: 
   scriptingRuntimeVersion: 1
   gcIncremental: 1
@@ -586,8 +670,12 @@ PlayerSettings:
   metroDefaultTileSize: 1
   metroTileForegroundText: 2
   metroTileBackgroundColor: {r: 0.13333334, g: 0.17254902, b: 0.21568628, a: 0}
+<<<<<<< HEAD
   metroSplashScreenBackgroundColor: {r: 0.12941177, g: 0.17254902, b: 0.21568628,
     a: 1}
+=======
+  metroSplashScreenBackgroundColor: {r: 0.12941177, g: 0.17254902, b: 0.21568628, a: 1}
+>>>>>>> Terrain-elimination
   metroSplashScreenUseBackgroundColor: 0
   platformCapabilities: {}
   metroTargetDeviceFamilies: {}
@@ -621,10 +709,14 @@ PlayerSettings:
   XboxOneXTitleMemory: 8
   XboxOneOverrideIdentityName: 
   XboxOneOverrideIdentityPublisher: 
+<<<<<<< HEAD
   vrEditorSettings:
     daydream:
       daydreamIconForeground: {fileID: 0}
       daydreamIconBackground: {fileID: 0}
+=======
+  vrEditorSettings: {}
+>>>>>>> Terrain-elimination
   cloudServicesEnabled: {}
   luminIcon:
     m_Name: 
@@ -638,6 +730,7 @@ PlayerSettings:
     m_VersionCode: 1
     m_VersionName: 
   apiCompatibilityLevel: 6
+<<<<<<< HEAD
   cloudProjectId: 
   framebufferDepthMemorylessMode: 0
   projectName: 
@@ -646,3 +739,14 @@ PlayerSettings:
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
   legacyClampBlendShapeWeights: 0
+=======
+  activeInputHandler: 0
+  cloudProjectId: 
+  framebufferDepthMemorylessMode: 0
+  qualitySettingsNames: []
+  projectName: 
+  organizationId: 
+  cloudEnabled: 0
+  legacyClampBlendShapeWeights: 0
+  virtualTexturingSupportEnabled: 0
+>>>>>>> Terrain-elimination

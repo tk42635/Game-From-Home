@@ -26,8 +26,11 @@
 # Visual Studio cache directory
 .vs/
 
+<<<<<<< HEAD
 .vscode/
 
+=======
+>>>>>>> Terrain-elimination
 # Gradle cache directory
 .gradle/
 

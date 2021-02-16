@@ -11,11 +11,11 @@ public class HolderSpawner : MonoBehaviour {
 	int prev_i, prev_j;
 
 	//const
-	const float x_base = -2.95f,
-		y_base = -3.95f;
+	const float x_base = -9f,
+		y_base = -5f;
 	const float step = 0.1f;
-	const int i_count = 60,
-		j_count = 80;
+	const int i_count = 200,
+		j_count = 95;
 	const int erase_r = 5;
 
 	bool[, ] holder_exist = new bool[i_count, j_count];
@@ -50,7 +50,7 @@ public class HolderSpawner : MonoBehaviour {
 	}
 
 	//simulate the erase of a line segment drag
-	void EraseLine (int i_begin, int j_begin, int i_end, int j_end) {
+	public void EraseLine (int i_begin, int j_begin, int i_end, int j_end) {
 		Debug.Log ((i_begin, j_begin, i_end, j_end));
 		if (Mathf.Abs (i_begin - i_end) <= 1 && Mathf.Abs (j_begin - j_end) <= 1) {
 			EraseCircle (i_begin, j_begin, erase_r);

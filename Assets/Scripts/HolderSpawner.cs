@@ -11,11 +11,11 @@ public class HolderSpawner : MonoBehaviour {
 	int prev_i, prev_j;
 
 	//const
-	const float x_base = -9f,
-		y_base = -5f;
+	const float x_base = -2.35f,
+		y_base = -4.95f;
 	const float step = 0.1f;
-	const int i_count = 200,
-		j_count = 95;
+	const int i_count = 48,
+		j_count = 90;
 	const int erase_r = 5;
 
 	bool[, ] holder_exist = new bool[i_count, j_count];
@@ -62,7 +62,7 @@ public class HolderSpawner : MonoBehaviour {
 	}
 
 	//erase the holders within a circle at (o_i, o_j) with radius r
-	void EraseCircle (int o_i, int o_j, int r) {
+	public void EraseCircle (int o_i, int o_j, int r) {
 		int i, j;
 
 		for (int i_offset = -r; i_offset <= r; i_offset++) {

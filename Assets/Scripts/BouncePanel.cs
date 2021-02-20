@@ -15,15 +15,7 @@ public class BouncePanel : MonoBehaviour {
 
     }
 
-    // public void SpawnPanel (float x, float y, float angle) {
-    // 	GameObject holder_Obj;
-
-    //     Quaternion rotation = Quaternion.Euler(0f, 0f, angle);
-
-    // 	holder_Obj = Instantiate (bouncepanel_Prefab, new Vector3 (x, y, 0f), rotation);
-    // 	holder_Obj.name = "bouncepanel_" + x + "_" + y;
-
-    // }
+    
     void OnTriggerEnter2D (Collider2D other) {
         Destroy (gameObject);
         int x = Mathf.RoundToInt ((other.transform.position.x - HolderSpawner.x_base) / HolderSpawner.step);

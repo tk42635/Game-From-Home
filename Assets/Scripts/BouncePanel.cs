@@ -1,13 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static HolderSpawner;
 
 public class BouncePanel : MonoBehaviour {
-    const float x_base = -2.35f,
-        y_base = -4.95f;
-    const float step = 0.1f;
-    const int force = 8;
-    //public GameObject bouncepanel_Prefab;
+   
     // Start is called before the first frame update
     void Start () {
 
@@ -29,8 +26,8 @@ public class BouncePanel : MonoBehaviour {
     // }
     void OnTriggerEnter2D (Collider2D other) {
         Destroy (gameObject);
-        int x = Mathf.RoundToInt ((other.transform.position.x - x_base) / step);
-        int y = Mathf.RoundToInt ((other.transform.position.y - y_base) / step);
+        int x = Mathf.RoundToInt ((other.transform.position.x - HolderSpawner.x_base) / HolderSpawner.step);
+        int y = Mathf.RoundToInt ((other.transform.position.y - HolderSpawner.y_base) / HolderSpawner.step);
         int r = Mathf.RoundToInt (other.transform.rotation.z);
 
         // int end_x = Mathf.RoundToInt(other.transform.position.x - 4 * Mathf.Cos(2f * Mathf.PI / 180 * r));
@@ -42,7 +39,7 @@ public class BouncePanel : MonoBehaviour {
 
         Rigidbody2D RIG = other.GetComponent<Rigidbody2D> ();
         RIG.velocity = new Vector3 (0, 0, 0);
-        RIG.AddForce (new Vector3 (0, 3, 0), ForceMode2D.Impulse);
+        //RIG.AddForce (new Vector3 (0, 3, 0), ForceMode2D.Impulse);
 
         Debug.Log ((x, y));
 

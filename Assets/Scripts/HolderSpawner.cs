@@ -11,12 +11,12 @@ public class HolderSpawner : MonoBehaviour {
 	int prev_i, prev_j;
 
 	//const
-	const float x_base = -2.35f,
+	public const float x_base = -2.35f,
 		y_base = -4.95f;
-	const float step = 0.1f;
-	const int i_count = 48,
-		j_count = 90;
-	const int erase_r = 5;
+	public const float step = 0.05f;
+	const int i_count = 96,
+		j_count = 180;
+	const int erase_r = 4;
 
 	bool[, ] holder_exist = new bool[i_count, j_count];
 

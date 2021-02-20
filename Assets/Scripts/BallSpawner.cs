@@ -5,7 +5,7 @@ using UnityEngine;
 public class BallSpawner : MonoBehaviour {
 
     public GameObject ball_Prefab;
-
+    public int numBall = 2;
     // Start is called before the first frame update
     void Start () {
         SpawnBall ();

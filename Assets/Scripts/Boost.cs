@@ -3,27 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using static HolderSpawner;
 
-public class Boost : MonoBehaviour
-{
+public class Boost : MonoBehaviour {
     // Start is called before the first frame update
-    void Start()
-    {
-        
+    void Start () {
+
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
+    void Update () {
+
     }
 
     void OnTriggerEnter2D (Collider2D other) {
         Destroy (gameObject);
         int x = Mathf.RoundToInt ((transform.position.x - HolderSpawner.x_base) / HolderSpawner.step);
         int y = Mathf.RoundToInt ((transform.position.y - HolderSpawner.y_base) / HolderSpawner.step);
-
-        
-
 
         // int end_x = Mathf.RoundToInt(other.transform.position.x - 4 * Mathf.Cos(2f * Mathf.PI / 180 * r));
         // int end_y = Mathf.RoundToInt(other.transform.position.y - 4 * Mathf.Sin(2f * Mathf.PI / 180 * r));
@@ -38,7 +32,6 @@ public class Boost : MonoBehaviour
         //RIG.AddForce (new Vector3 (0, 9.81f, 0), ForceMode2D.Force);
         RIG.velocity = new Vector3 (2, 0, 0);
         // RIG.AddForce (new Vector3 (5, 0, 0), ForceMode2D.Impulse);
-
 
         // Destroy(gameObject);
     }

@@ -4,7 +4,7 @@ using UnityEngine;
 using static HolderSpawner;
 
 public class BouncePanel : MonoBehaviour {
-   
+
     // Start is called before the first frame update
     void Start () {
 
@@ -15,7 +15,6 @@ public class BouncePanel : MonoBehaviour {
 
     }
 
-    
     void OnTriggerEnter2D (Collider2D other) {
         Destroy (gameObject);
         int x = Mathf.RoundToInt ((other.transform.position.x - HolderSpawner.x_base) / HolderSpawner.step);

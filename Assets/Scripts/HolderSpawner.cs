@@ -14,16 +14,16 @@ public class HolderSpawner : MonoBehaviour {
 	public const float x_base = -2.4f;
 	public const float y_base = -5f;
 	public const float step = 0.05f;
-	const int i_count = 96;
-	const int j_count = 180;
 
 	const int initial_i_count = 3;
 	const int initial_j_count = 6;
 	const int initial_e = 32;
+	const int i_count = initial_i_count * initial_e;
+	const int j_count = initial_j_count * initial_e;
 
 	const int erase_r = 4;
 
-	bool[, ] holder_exist = new bool[i_count, j_count];
+	int[, ] holder_info = new int[i_count, j_count];
 
 	// Start is called before the first frame update
 	void Start () {
@@ -76,7 +76,7 @@ public class HolderSpawner : MonoBehaviour {
 					i = o_i + i_offset;
 					j = o_j + j_offset;
 					if (i >= 0 && i < i_count && j >= 0 && j < j_count) {
-						if (holder_exist[i, j]) {
+						if (holder_info[i, j] > 0) {
 							EraseHolder (i, j);
 						}
 					}
@@ -89,21 +89,21 @@ public class HolderSpawner : MonoBehaviour {
 	void EraseHolder (int i, int j) {
 		GameObject holder_Obj;
 
-		holder_Obj = GameObject.Find ("smallholder_" + i + "_" + j);
+		holder_Obj = GameObject.Find ("holder_" + holder_info[i, j] + "_" + i + "_" + j);
 		Destroy (holder_Obj);
-		holder_exist[i, j] = false;
+		holder_info[i, j] = 0;
 	}
 
 	//spawn all holders in the map
 	public void SpawnAllHolder () {
-		for (int i = 0; i < i_count; i+=initial_e) {
-			for (int j = 0; j < j_count; j+=initial_e) {
+		for (int i = 0; i < i_count; i += initial_e) {
+			for (int j = 0; j < j_count; j += initial_e) {
 				SpawnHolder (initial_e, i, j);
 			}
 		}
 	}
 
-	//spawn a holder at (i, j) with edge e
+	//spawn a holder at (i, j) with edge e, mark all the info inside the holder as e
 	public void SpawnHolder (int e, int i, int j) {
 		GameObject holder_Obj;
 		float x, y;
@@ -114,6 +114,11 @@ public class HolderSpawner : MonoBehaviour {
 		holder_Obj = Instantiate (holder_Prefab, new Vector3 (x, y, 0f), Quaternion.identity);
 		holder_Obj.transform.localScale = new Vector3 (e * step, e * step, 1f);
 		holder_Obj.name = "holder_" + e + "_" + i + "_" + j;
-		holder_exist[i, j] = true;
+
+		for (int i_offset = i; i_offset < i + e; i_offset++) {
+			for (int j_offset = j; j_offset < j + e; j_offset++) {
+				holder_info[i_offset, j_offset] = e;
+			}
+		}
 	}
 }

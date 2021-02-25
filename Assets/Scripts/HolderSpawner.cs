@@ -11,11 +11,16 @@ public class HolderSpawner : MonoBehaviour {
 	int prev_i, prev_j;
 
 	//const
-	public const float x_base = -2.35f,
-		y_base = -4.95f;
+	public const float x_base = -2.4f;
+	public const float y_base = -5f;
 	public const float step = 0.05f;
-	const int i_count = 96,
-		j_count = 180;
+	const int i_count = 96;
+	const int j_count = 180;
+
+	const int initial_i_count = 3;
+	const int initial_j_count = 6;
+	const int initial_e = 32;
+
 	const int erase_r = 4;
 
 	bool[, ] holder_exist = new bool[i_count, j_count];
@@ -91,23 +96,24 @@ public class HolderSpawner : MonoBehaviour {
 
 	//spawn all holders in the map
 	public void SpawnAllHolder () {
-		for (int i = 0; i < i_count; i++) {
-			for (int j = 0; j < j_count; j++) {
-				SpawnHolder (i, j);
+		for (int i = 0; i < i_count; i+=initial_e) {
+			for (int j = 0; j < j_count; j+=initial_e) {
+				SpawnHolder (initial_e, i, j);
 			}
 		}
 	}
 
-	//spawn a holder at (i, j)
-	public void SpawnHolder (int i, int j) {
+	//spawn a holder at (i, j) with edge e
+	public void SpawnHolder (int e, int i, int j) {
 		GameObject holder_Obj;
 		float x, y;
 
-		x = x_base + i * step;
-		y = y_base + j * step;
+		x = x_base + i * step + e * step / 2;
+		y = y_base + j * step + e * step / 2;
 
 		holder_Obj = Instantiate (holder_Prefab, new Vector3 (x, y, 0f), Quaternion.identity);
-		holder_Obj.name = "smallholder_" + i + "_" + j;
+		holder_Obj.transform.localScale = new Vector3 (e * step, e * step, 1f);
+		holder_Obj.name = "holder_" + e + "_" + i + "_" + j;
 		holder_exist[i, j] = true;
 	}
 }

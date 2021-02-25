@@ -23,7 +23,9 @@ public class HolderSpawner : MonoBehaviour {
 
 	const int erase_r = 4;
 
-	int[, ] holder_info = new int[i_count, j_count];
+	int[] holder_info = new int[i_count * j_count];
+	int[] holder_info_temp = new int[i_count * j_count];
+	List<int[]> erase_list = new List<int[]> ();
 
 	// Start is called before the first frame update
 	void Start () {
@@ -39,7 +41,7 @@ public class HolderSpawner : MonoBehaviour {
 			mouse_y = Camera.main.ScreenToWorldPoint (Input.mousePosition).y;
 			mouse_i = Mathf.RoundToInt ((mouse_x - x_base) / step);
 			mouse_j = Mathf.RoundToInt ((mouse_y - y_base) / step);
-			Debug.Log ((prev_mousedown, prev_i, prev_j, mouse_i, mouse_j));
+			//Debug.Log ((prev_mousedown, prev_i, prev_j, mouse_i, mouse_j));
 			//Rapid mouse drag detected
 			if (prev_mousedown && (Mathf.Abs (prev_i - mouse_i) > 1 || Mathf.Abs (prev_j - mouse_j) > 1)) {
 				EraseLine (prev_i, prev_j, mouse_i, mouse_j);
@@ -76,22 +78,56 @@ public class HolderSpawner : MonoBehaviour {
 					i = o_i + i_offset;
 					j = o_j + j_offset;
 					if (i >= 0 && i < i_count && j >= 0 && j < j_count) {
-						if (holder_info[i, j] > 0) {
+						if (holder_info[i + j * i_count] > 0) {
 							EraseHolder (i, j);
 						}
 					}
 				}
 			}
 		}
+		EraseSubmit ();
 	}
 
 	//erase the holder at (i, j)
 	void EraseHolder (int i, int j) {
-		GameObject holder_Obj;
+		int i_start, j_start;
+		int ptr = i + j * i_count;
+		int edge = holder_info[ptr];
+		if (edge == 0)
+			return;
+		if (edge == holder_info_temp[ptr])
+			erase_list.Add (new int[] { edge, i - i % edge, j - j % edge });
+		while (edge > 1) {
+			i_start = i - i % edge;
+			j_start = j - j % edge;
+			edge = edge / 2;
 
-		holder_Obj = GameObject.Find ("holder_" + holder_info[i, j] + "_" + i + "_" + j);
-		Destroy (holder_Obj);
-		holder_info[i, j] = 0;
+			for (int i_offset = i_start; i_offset < i_start + edge * 2; i_offset++) {
+				for (int j_offset = j_start; j_offset < j_start + edge * 2; j_offset++) {
+					holder_info[i_offset + j_offset * i_count] = edge;
+				}
+			}
+		}
+		holder_info[ptr] = 0;
+	}
+
+	void EraseSubmit () {
+		GameObject holder_Obj;
+		for (int i = 0; i < i_count; i++) {
+			for (int j = 0; j < j_count; j++) {
+				int ptr = i + j * i_count;
+				if (holder_info[ptr] != holder_info_temp[ptr] && holder_info[ptr] != 0) {
+					if (i % holder_info[ptr] == 0 && j % holder_info[ptr] == 0) {
+						SpawnHolder (holder_info[ptr], i, j);
+					}
+				}
+			}
+		}
+		foreach (int[] erase_holder in erase_list) {
+			holder_Obj = GameObject.Find ("holder_" + erase_holder[0] + "_" + erase_holder[1] + "_" + erase_holder[2]);
+			Destroy (holder_Obj);
+		}
+		holder_info.CopyTo (holder_info_temp, 0);
 	}
 
 	//spawn all holders in the map
@@ -101,6 +137,12 @@ public class HolderSpawner : MonoBehaviour {
 				SpawnHolder (initial_e, i, j);
 			}
 		}
+		for (int i = 0; i < i_count; i++) {
+			for (int j = 0; j < j_count; j++) {
+				holder_info[i + j * i_count] = initial_e;
+			}
+		}
+		holder_info.CopyTo (holder_info_temp, 0);
 	}
 
 	//spawn a holder at (i, j) with edge e, mark all the info inside the holder as e
@@ -114,11 +156,5 @@ public class HolderSpawner : MonoBehaviour {
 		holder_Obj = Instantiate (holder_Prefab, new Vector3 (x, y, 0f), Quaternion.identity);
 		holder_Obj.transform.localScale = new Vector3 (e * step, e * step, 1f);
 		holder_Obj.name = "holder_" + e + "_" + i + "_" + j;
-
-		for (int i_offset = i; i_offset < i + e; i_offset++) {
-			for (int j_offset = j; j_offset < j + e; j_offset++) {
-				holder_info[i_offset, j_offset] = e;
-			}
-		}
 	}
 }

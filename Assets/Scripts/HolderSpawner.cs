@@ -144,6 +144,7 @@ public class HolderSpawner : MonoBehaviour {
 			holder_Obj = GameObject.Find ("holder_" + erase_holder[0] + "_" + erase_holder[1] + "_" + erase_holder[2]);
 			Destroy (holder_Obj);
 		}
+		erase_list.Clear();
 		holder_info.CopyTo (holder_info_temp, 0);
 	}
 

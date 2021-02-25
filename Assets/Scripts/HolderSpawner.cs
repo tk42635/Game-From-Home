@@ -46,7 +46,7 @@ public class HolderSpawner : MonoBehaviour {
 			if (prev_mousedown && (Mathf.Abs (prev_i - mouse_i) > 1 || Mathf.Abs (prev_j - mouse_j) > 1)) {
 				EraseLine (prev_i, prev_j, mouse_i, mouse_j);
 			}
-			EraseCircle (mouse_i, mouse_j, erase_r);
+			EraseCircle_4 (mouse_i, mouse_j);
 
 			prev_mousedown = true;
 			prev_i = mouse_i;
@@ -60,8 +60,8 @@ public class HolderSpawner : MonoBehaviour {
 	public void EraseLine (int i_begin, int j_begin, int i_end, int j_end) {
 		Debug.Log ((i_begin, j_begin, i_end, j_end));
 		if (Mathf.Abs (i_begin - i_end) <= 1 && Mathf.Abs (j_begin - j_end) <= 1) {
-			EraseCircle (i_begin, j_begin, erase_r);
-			EraseCircle (i_end, j_end, erase_r);
+			EraseCircle_4 (i_begin, j_begin);
+			EraseCircle_4 (i_end, j_end);
 		} else {
 			EraseLine (i_begin, j_begin, (i_begin + i_end) / 2, (j_begin + j_end) / 2);
 			EraseLine ((i_begin + i_end) / 2, (j_begin + j_end) / 2, i_end, j_end);
@@ -87,14 +87,31 @@ public class HolderSpawner : MonoBehaviour {
 		}
 		EraseSubmit ();
 	}
+	
+	public void EraseCircle_4 (int o_i, int o_j) {
+		int i, j, r = 3;
+
+		for (int i_offset = -r; i_offset <= r; i_offset++) {
+			for (int j_offset = -r; j_offset <= r; j_offset++) {
+				if (Mathf.Abs (i_offset * j_offset) < 9) {
+					i = o_i + i_offset;
+					j = o_j + j_offset;
+					if (i >= 0 && i < i_count && j >= 0 && j < j_count) {
+						if (holder_info[i + j * i_count] > 0) {
+							EraseHolder (i, j);
+						}
+					}
+				}
+			}
+		}
+		EraseSubmit ();
+	}
 
 	//erase the holder at (i, j)
 	void EraseHolder (int i, int j) {
 		int i_start, j_start;
 		int ptr = i + j * i_count;
 		int edge = holder_info[ptr];
-		if (edge == 0)
-			return;
 		if (edge == holder_info_temp[ptr])
 			erase_list.Add (new int[] { edge, i - i % edge, j - j % edge });
 		while (edge > 1) {

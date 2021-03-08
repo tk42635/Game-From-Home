@@ -34,7 +34,7 @@ public class HolderSpawner : MonoBehaviour {
 			mouse_y = Camera.main.ScreenToWorldPoint (Input.mousePosition).y;
 			mouse_i = Mathf.RoundToInt ((mouse_x - x_base) / step);
 			mouse_j = Mathf.RoundToInt ((mouse_y - y_base) / step);
-			Debug.Log ((prev_mousedown, prev_i, prev_j, mouse_i, mouse_j));
+			//Debug.Log ((prev_mousedown, prev_i, prev_j, mouse_i, mouse_j));
 			//Rapid mouse drag detected
 			if (prev_mousedown && (Mathf.Abs (prev_i - mouse_i) > 1 || Mathf.Abs (prev_j - mouse_j) > 1)) {
 				EraseLine (prev_i, prev_j, mouse_i, mouse_j);
@@ -51,7 +51,7 @@ public class HolderSpawner : MonoBehaviour {
 
 	//simulate the erase of a line segment drag
 	public void EraseLine (int i_begin, int j_begin, int i_end, int j_end) {
-		Debug.Log ((i_begin, j_begin, i_end, j_end));
+		//Debug.Log ((i_begin, j_begin, i_end, j_end));
 		if (Mathf.Abs (i_begin - i_end) <= 1 && Mathf.Abs (j_begin - j_end) <= 1) {
 			EraseCircle (i_begin, j_begin, erase_r);
 			EraseCircle (i_end, j_end, erase_r);

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Analytics;
 
 public class Destination : MonoBehaviour
 {
@@ -21,6 +22,9 @@ public class Destination : MonoBehaviour
 
         Destroy (other.gameObject);
         dc.numBall -= 1;
+        AnalyticsResult analyticsResult = Analytics.CustomEvent("LevelWin" + (2 - dc.numBall));
+        Debug.Log("analyticsResult: " + analyticsResult);
+
         if(dc.numBall == 0)  Application.Quit();
     }
 }

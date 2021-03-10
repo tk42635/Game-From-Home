@@ -5,11 +5,11 @@ using UnityEngine.Analytics;
 
 public class Destination : MonoBehaviour {
     private DestinationController dc;
-    private LevelOneManager levelOneManager;
+    private LevelManager levelManager;
     // Start is called before the first frame update
     void Start () {
         dc = FindObjectOfType<DestinationController> ();
-        levelOneManager = FindObjectOfType<LevelOneManager> ();
+        levelManager = FindObjectOfType<LevelManager> ();
     }
 
     // Update is called once per frame
@@ -29,7 +29,7 @@ public class Destination : MonoBehaviour {
         );
         Debug.Log ("analyticsResult: " + analyticsResult);
 
-        int levelScore = levelOneManager.score;
+        int levelScore = levelManager.score;
         Analytics.CustomEvent (
             "DiamondCollect",
             new Dictionary<string, object> { { "Level", 1 },

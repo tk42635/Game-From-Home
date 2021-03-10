@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Diamonds : MonoBehaviour {
-    private LevelOneManager levelOneManager;
+    private LevelManager levelManager;
     // define the value of element
     public int diamondValue = 1;
 
     // Start is called before the first frame update
     void Start () {
-        levelOneManager = FindObjectOfType<LevelOneManager> ();
+        levelManager = FindObjectOfType<LevelManager> ();
     }
 
     // Update is called once per frame
@@ -22,7 +22,7 @@ public class Diamonds : MonoBehaviour {
         // need to change the tag of the element
         if (other.tag == "Player") {
             Destroy (gameObject);
-            levelOneManager.AddScore (diamondValue);
+            levelManager.AddScore (diamondValue);
         }
     }
 }

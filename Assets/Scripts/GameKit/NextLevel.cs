@@ -4,11 +4,9 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
-public class NextLevel : MonoBehaviour
-{
-    public void OnMouseDown()
-    {
-        Debug.Log("go to next level");
-        SceneManager.LoadScene("Stage2");
+public class NextLevel : MonoBehaviour {
+    public void OnMouseDown () {
+        Debug.Log ("go to next level");
+        SceneManager.LoadScene ("Stage2");
     }
 }

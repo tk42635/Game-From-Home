@@ -1,21 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class Bomb : MonoBehaviour
-{
+public class Bomb : MonoBehaviour {
     private BallSpawner bs;
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start () {
         bs = FindObjectOfType<BallSpawner> ();
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
+    void Update () {
+
     }
 
     void OnTriggerEnter2D (Collider2D other) {
@@ -23,6 +20,6 @@ public class Bomb : MonoBehaviour
         Destroy (other.gameObject);
         Destroy (gameObject);
         bs.numBall -= 1;
-        if(bs.numBall == 0)  SceneManager.LoadScene( SceneManager.GetActiveScene().name );
+        if (bs.numBall == 0) SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
     }
 }

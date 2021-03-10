@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class BallSpawner : MonoBehaviour {
 
-    public GameObject ball_Prefab;
-    public int numBall = 2;
+    public GameObject ballPrefab;
+    public int numBall;
+    public float distance = 1f;
     // Start is called before the first frame update
     void Start () {
         SpawnBall ();
@@ -17,15 +18,14 @@ public class BallSpawner : MonoBehaviour {
     }
 
     public void SpawnBall () {
-        GameObject ball_Obj = Instantiate (ball_Prefab);
-
-        Vector3 temp = transform.position;
-        ball_Obj.transform.position = temp;
-
-        ball_Obj = Instantiate (ball_Prefab);
-
-        temp = transform.position;
-        temp.x = temp.x + 1f;
-        ball_Obj.transform.position = temp;
+        GameObject ball_Obj;
+        Vector3 base_pos = transform.position;
+        base_pos.x = base_pos.x - (float) (numBall - 1) / 2 * distance;
+        for (int i = 0; i < numBall; i++) {
+            Vector3 temp = base_pos;
+            temp.x = temp.x + i * distance;
+            ball_Obj = Instantiate (ballPrefab);
+            ball_Obj.transform.position = temp;
+        }
     }
 }

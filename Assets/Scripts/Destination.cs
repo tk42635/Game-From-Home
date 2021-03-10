@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class Destination : MonoBehaviour {
     private BallSpawner bs;
     private LevelManager levelManager;
+    public int maxlevel;
     // Start is called before the first frame update
     void Start () {
         bs = FindObjectOfType<BallSpawner> ();
@@ -42,7 +43,12 @@ public class Destination : MonoBehaviour {
             levelManager = FindObjectOfType<LevelManager> ();
             Debug.Log (levelManager.score);
             Debug.Log ("go to next level");
-            SceneManager.LoadScene ("Stage2");
+            int thislevel = int.Parse (SceneManager.GetActiveScene ().name);
+            int nextlevel = thislevel +1;
+            if(nextlevel <= maxlevel)
+                SceneManager.LoadScene (nextlevel.ToString ());
+            else
+                SceneManager.LoadScene ("Menu");
         }
     }
 }

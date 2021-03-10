@@ -5,8 +5,14 @@ using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class NextLevel : MonoBehaviour {
+    public int maxlevel = 2;
     public void OnMouseDown () {
         Debug.Log ("go to next level");
-        SceneManager.LoadScene ("Stage2");
+        int thislevel = int.Parse (SceneManager.GetActiveScene ().name);
+        int nextlevel = thislevel + 1;
+        if (nextlevel <= maxlevel)
+            SceneManager.LoadScene (nextlevel.ToString ());
+        else
+            SceneManager.LoadScene ("Menu");
     }
 }

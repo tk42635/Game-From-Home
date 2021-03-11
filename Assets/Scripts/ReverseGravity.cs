@@ -15,9 +15,7 @@ public class ReverseGravity : MonoBehaviour {
 
     void OnTriggerEnter2D (Collider2D other) {
         Destroy (gameObject);
-
         Rigidbody2D RIG = other.GetComponent<Rigidbody2D> ();
         RIG.gravityScale = -0.07f;
-
     }
 }

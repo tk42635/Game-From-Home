@@ -15,7 +15,7 @@ public class HolderSpawner : MonoBehaviour {
 	//base: bottom left
 	//step: side length of the smallest holder
 	public const float x_base = -2.4f;
-	public const float y_base = -5f;
+	public const float y_base = -5.2f;
 	public const float step = 0.05f;
 
 	//initial-holder:

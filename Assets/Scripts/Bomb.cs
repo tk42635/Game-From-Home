@@ -1,13 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Bomb : MonoBehaviour {
-    private BallSpawner bs;
+    private LevelManager levelManager;
     // Start is called before the first frame update
     void Start () {
-        bs = FindObjectOfType<BallSpawner> ();
+        levelManager = FindObjectOfType<LevelManager> ();
     }
 
     // Update is called once per frame
@@ -16,10 +15,10 @@ public class Bomb : MonoBehaviour {
     }
 
     void OnTriggerEnter2D (Collider2D other) {
-
         Destroy (other.gameObject);
         Destroy (gameObject);
-        bs.numBall -= 1;
-        if (bs.numBall == 0) SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
+        levelManager.levelBallExist -= 1;
+        if (levelManager.levelBallExist == 0)
+            levelManager.LevelDone ();
     }
 }

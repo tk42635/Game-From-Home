@@ -7,8 +7,10 @@ public class BallSpawner : MonoBehaviour {
     public GameObject ballPrefab;
     public int numBall;
     public float distance = 1f;
+    private LevelManager levelManager;
     // Start is called before the first frame update
     void Start () {
+        levelManager = FindObjectOfType<LevelManager> ();
         SpawnBall ();
     }
 
@@ -27,5 +29,8 @@ public class BallSpawner : MonoBehaviour {
             ball_Obj = Instantiate (ballPrefab);
             ball_Obj.transform.position = temp;
         }
+        levelManager.levelBallExist = numBall;
+        levelManager.levelBallArrived = 0;
+        levelManager.levelBallMax = numBall;
     }
 }

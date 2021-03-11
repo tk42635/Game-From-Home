@@ -2,15 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Analytics;
-using UnityEngine.SceneManagement;
 
 public class Destination : MonoBehaviour {
-    private BallSpawner bs;
     private LevelManager levelManager;
-    public int maxlevel;
     // Start is called before the first frame update
     void Start () {
-        bs = FindObjectOfType<BallSpawner> ();
         levelManager = FindObjectOfType<LevelManager> ();
     }
 
@@ -20,13 +16,16 @@ public class Destination : MonoBehaviour {
     }
 
     void OnTriggerEnter2D (Collider2D other) {
-
         Destroy (other.gameObject);
-        bs.numBall -= 1;
+        levelManager.levelBallExist -= 1;
+        levelManager.levelBallArrived += 1;
+        if (levelManager.levelBallExist == 0)
+            levelManager.LevelDone ();
+
         AnalyticsResult analyticsResult = Analytics.CustomEvent (
             "LevelWin",
             new Dictionary<string, object> { { "Level", 1 },
-                { "NumBallToWin", (2 - bs.numBall) }
+                { "NumBallToWin", (levelManager.levelBallMax - levelManager.levelBallArrived) }
             }
         );
         Debug.Log ("analyticsResult: " + analyticsResult);
@@ -38,17 +37,5 @@ public class Destination : MonoBehaviour {
                 { "NumDiamondCollect", levelScore }
             }
         );
-
-        if (bs.numBall == 0) {
-            levelManager = FindObjectOfType<LevelManager> ();
-            Debug.Log (levelManager.score);
-            Debug.Log ("go to next level");
-            int thislevel = int.Parse (SceneManager.GetActiveScene ().name);
-            int nextlevel = thislevel +1;
-            if(nextlevel <= maxlevel)
-                SceneManager.LoadScene (nextlevel.ToString ());
-            else
-                SceneManager.LoadScene ("Menu");
-        }
     }
 }

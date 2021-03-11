@@ -13,10 +13,6 @@ public class IcePlatforms : MonoBehaviour {
 
     }
     void OnTriggerEnter2D (Collider2D other) {
-
-        // need to change the tag of the element
-        if (other.tag == "Player") {
-            Destroy (gameObject);
-        }
+        Destroy (gameObject);
     }
 }

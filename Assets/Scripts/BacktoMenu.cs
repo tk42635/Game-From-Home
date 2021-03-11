@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Diamonds : MonoBehaviour {
-    public int diamondValue = 1;
+public class BacktoMenu : MonoBehaviour {
     private LevelManager levelManager;
     // Start is called before the first frame update
     void Start () {
@@ -15,8 +14,8 @@ public class Diamonds : MonoBehaviour {
 
     }
 
-    void OnTriggerEnter2D (Collider2D other) {
-        Destroy (gameObject);
-        levelManager.AddScore (diamondValue);
+    public void OnMouseDown () {
+        Debug.Log ("restart current level");
+        levelManager.BacktoMenu ();
     }
 }

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6789700609436695011}
   - component: {fileID: 6789700609436695010}
   m_Layer: 0
-  m_Name: PlankSprite_0
+  m_Name: PlankSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -17,8 +17,8 @@ public class Bomb : MonoBehaviour {
     void OnTriggerEnter2D (Collider2D other) {
         Destroy (other.gameObject);
         Destroy (gameObject);
-        levelManager.levelBallExist -= 1;
-        if (levelManager.levelBallExist == 0)
+        // levelManager.levelBallExist -= 1;
+        // if (levelManager.levelBallExist == 0)
             levelManager.LevelDone ();
     }
 }

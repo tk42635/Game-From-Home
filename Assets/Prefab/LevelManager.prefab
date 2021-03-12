@@ -49,6 +49,8 @@ MonoBehaviour:
   levelBallExist: 0
   levelBallArrived: 0
   levelBallMax: 0
+  successDialogue: {fileID: 508653530978991207, guid: eebc5bf264f657e41ba895a48b7eb254, type: 3}
+  failureDialogue: {fileID: 2735252602116711992, guid: c725e89e073228040b1568de6272603c, type: 3}
 --- !u!114 &7170521977286161895
 MonoBehaviour:
   m_ObjectHideFlags: 0

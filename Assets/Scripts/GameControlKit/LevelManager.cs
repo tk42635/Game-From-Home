@@ -9,10 +9,13 @@ public class LevelManager : MonoBehaviour {
     public int levelBallExist;
     public int levelBallArrived;
     public int levelBallMax;
+    public static readonly int[] requiredScoreToUnlock = {0, 3, 3, 3, 3, 3, 3, 3, 3, 3};
+    public GameObject successDialogue;
+    public GameObject failureDialogue;
 
     // Start is called before the first frame update
     void Start () {
-
+        
     }
 
     // Update is called once per frame
@@ -25,10 +28,18 @@ public class LevelManager : MonoBehaviour {
     }
     public void LevelDone () {
         Debug.Log ("Score:" + score);
-        if (levelBallArrived == levelBallMax)
-            NextLevel ();
+        int thislevel = int.Parse (SceneManager.GetActiveScene ().name);
+        Debug.Log ("thislevel:" + thislevel);
+        if (levelBallArrived == levelBallMax && score >= requiredScoreToUnlock[thislevel])
+            {
+                UnlockNextLevel();
+                Instantiate(successDialogue, new Vector3(0, 0, 0), Quaternion.identity);
+            }
         else
-            Restart ();
+            Instantiate(failureDialogue, new Vector3(0, 0, 0), Quaternion.identity);
+    }
+    public void UnlockNextLevel () {
+        
     }
     public void Restart () {
         SceneManager.LoadScene (SceneManager.GetActiveScene ().name);

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static HolderSpawner;
 
-public class BouncePanel : MonoBehaviour {
+public class Expander : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start () {

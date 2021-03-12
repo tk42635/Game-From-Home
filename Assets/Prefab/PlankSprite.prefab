@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 6789700609436695009}
   - component: {fileID: 6789700609436695011}
   - component: {fileID: 6789700609436695010}
+  - component: {fileID: 2430946965608767786}
   m_Layer: 0
-  m_Name: PlankSprite_0
+  m_Name: PlankSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -109,3 +110,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.65, y: 0.37}
   m_EdgeRadius: 0
+--- !u!114 &2430946965608767786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6789700609436695008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3f4b94eec66aef49860dbb8a9f81f4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

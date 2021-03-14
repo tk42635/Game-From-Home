@@ -798,7 +798,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7393711407221446523, guid: 85e54e4f0041c4247b6cdd8569426027, type: 3}
       propertyPath: m_Name
-      value: level11destination
+      value: yellowDestination
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85e54e4f0041c4247b6cdd8569426027, type: 3}
@@ -3511,7 +3511,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6325352849380212907, guid: 8d3c4e08b05b34277b66808205c9c7a1, type: 3}
       propertyPath: m_Name
-      value: level11destination2
+      value: blueDestination
       objectReference: {fileID: 0}
     - target: {fileID: 6325352849380212910, guid: 8d3c4e08b05b34277b66808205c9c7a1, type: 3}
       propertyPath: m_SortingOrder

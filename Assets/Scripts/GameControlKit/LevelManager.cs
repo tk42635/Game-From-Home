@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Analytics;
 
 public class LevelManager : MonoBehaviour {
     public int score = 0;
@@ -37,11 +38,22 @@ public class LevelManager : MonoBehaviour {
             }
         else
             Instantiate(failureDialogue, new Vector3(0, 0, 0), Quaternion.identity);
-    }
+        
+        AnalyticsEvent.LevelComplete(SceneManager.GetActiveScene ().name, new Dictionary<string, object>() {
+            {"LevelBallArrivalRate", ((double)levelBallArrived / levelBallMax)}
+        });
+
+        AnalyticsEvent.LevelComplete(SceneManager.GetActiveScene ().name, new Dictionary<string, object>() {
+            {"LevelScoringRate", ((double)score / requiredScoreToUnlock[thislevel])}
+        });
+        // Debug.Log ("levelBallArrived:" + levelBallArrived);
+        // Debug.Log ("levelBallMax:" + requiredScoreToUnlock[thislevel]);
+    }   
     public void UnlockNextLevel () {
         
     }
     public void Restart () {
+        AnalyticsEvent.LevelFail(SceneManager.GetActiveScene ().name);
         SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
     }
     public void NextLevel () {

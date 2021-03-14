@@ -84,6 +84,182 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7170521977286161895, guid: 4249c89715a85f44ebd766130a436e4a, type: 3}
+      propertyPath: m_EventPayload.m_Name
+      value: LevelOne
+      objectReference: {fileID: 0}
+    - target: {fileID: 7170521977286161895, guid: 4249c89715a85f44ebd766130a436e4a, type: 3}
+      propertyPath: m_Trigger.m_ApplyRules
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7170521977286161895, guid: 4249c89715a85f44ebd766130a436e4a, type: 3}
+      propertyPath: m_Trigger.m_TriggerBool
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7170521977286161895, guid: 4249c89715a85f44ebd766130a436e4a, type: 3}
+      propertyPath: m_Trigger.m_LifecycleEvent
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7170521977286161895, guid: 4249c89715a85f44ebd766130a436e4a, type: 3}
+      propertyPath: m_Trigger.m_Rules.m_Rules.Array.data[0].m_Target.m_Path
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7170521977286161895, guid: 4249c89715a85f44ebd766130a436e4a, type: 3}
+      propertyPath: m_Trigger.m_Rules.m_Rules.Array.data[0].m_Target.m_Type
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7170521977286161895, guid: 4249c89715a85f44ebd766130a436e4a, type: 3}
+      propertyPath: m_Trigger.m_Rules.m_Rules.Array.data[0].m_Value.m_Value
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7170521977286161895, guid: 4249c89715a85f44ebd766130a436e4a, type: 3}
+      propertyPath: m_Trigger.m_Rules.m_Rules.Array.data[1].m_Target.m_Path
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7170521977286161895, guid: 4249c89715a85f44ebd766130a436e4a, type: 3}
+      propertyPath: m_Trigger.m_Rules.m_Rules.Array.data[1].m_Target.m_Type
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7170521977286161895, guid: 4249c89715a85f44ebd766130a436e4a, type: 3}
+      propertyPath: m_Trigger.m_Rules.m_Rules.Array.data[1].m_Value.m_Value
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7170521977286161895, guid: 4249c89715a85f44ebd766130a436e4a, type: 3}
+      propertyPath: m_Trigger.m_Rules.m_Rules.Array.data[2].m_Target.m_Path
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7170521977286161895, guid: 4249c89715a85f44ebd766130a436e4a, type: 3}
+      propertyPath: m_Trigger.m_Rules.m_Rules.Array.data[2].m_Target.m_Type
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7170521977286161895, guid: 4249c89715a85f44ebd766130a436e4a, type: 3}
+      propertyPath: m_Trigger.m_Rules.m_Rules.Array.data[2].m_Value.m_Value
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7170521977286161895, guid: 4249c89715a85f44ebd766130a436e4a, type: 3}
+      propertyPath: m_Trigger.m_Rules.m_Rules.Array.data[0].m_Target.m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7170521977286161895, guid: 4249c89715a85f44ebd766130a436e4a, type: 3}
+      propertyPath: m_Trigger.m_Rules.m_Rules.Array.data[1].m_Target.m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7170521977286161895, guid: 4249c89715a85f44ebd766130a436e4a, type: 3}
+      propertyPath: m_Trigger.m_Rules.m_Rules.Array.data[2].m_Target.m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7170521977286161895, guid: 4249c89715a85f44ebd766130a436e4a, type: 3}
+      propertyPath: m_Trigger.m_Rules.m_Rules.Array.data[0].m_Value.m_FixedType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7170521977286161895, guid: 4249c89715a85f44ebd766130a436e4a, type: 3}
+      propertyPath: m_Trigger.m_Rules.m_Rules.Array.data[0].m_Value.m_ValueType
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7170521977286161895, guid: 4249c89715a85f44ebd766130a436e4a, type: 3}
+      propertyPath: m_Trigger.m_Rules.m_Rules.Array.data[1].m_Value.m_FixedType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7170521977286161895, guid: 4249c89715a85f44ebd766130a436e4a, type: 3}
+      propertyPath: m_Trigger.m_Rules.m_Rules.Array.data[1].m_Value.m_ValueType
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7170521977286161895, guid: 4249c89715a85f44ebd766130a436e4a, type: 3}
+      propertyPath: m_Trigger.m_Rules.m_Rules.Array.data[2].m_Value.m_FixedType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7170521977286161895, guid: 4249c89715a85f44ebd766130a436e4a, type: 3}
+      propertyPath: m_Trigger.m_Rules.m_Rules.Array.data[2].m_Value.m_ValueType
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7170521977286161895, guid: 4249c89715a85f44ebd766130a436e4a, type: 3}
+      propertyPath: m_EventPayload.m_Parameters.m_Parameters.Array.data[0].m_Name
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7170521977286161895, guid: 4249c89715a85f44ebd766130a436e4a, type: 3}
+      propertyPath: m_Trigger.m_Rules.m_Rules.Array.data[0].m_Value.m_PropertyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7170521977286161895, guid: 4249c89715a85f44ebd766130a436e4a, type: 3}
+      propertyPath: m_Trigger.m_Rules.m_Rules.Array.data[1].m_Value.m_PropertyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7170521977286161895, guid: 4249c89715a85f44ebd766130a436e4a, type: 3}
+      propertyPath: m_Trigger.m_Rules.m_Rules.Array.data[2].m_Value.m_PropertyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7170521977286161895, guid: 4249c89715a85f44ebd766130a436e4a, type: 3}
+      propertyPath: m_Trigger.m_Rules.m_Rules.Array.data[0].m_Value.m_Target.m_Type
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7170521977286161895, guid: 4249c89715a85f44ebd766130a436e4a, type: 3}
+      propertyPath: m_Trigger.m_Rules.m_Rules.Array.data[1].m_Value.m_Target.m_Type
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7170521977286161895, guid: 4249c89715a85f44ebd766130a436e4a, type: 3}
+      propertyPath: m_Trigger.m_Rules.m_Rules.Array.data[2].m_Value.m_Target.m_Type
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7170521977286161895, guid: 4249c89715a85f44ebd766130a436e4a, type: 3}
+      propertyPath: m_EventPayload.m_Parameters.m_Parameters.Array.data[0].m_Value.m_Value
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7170521977286161895, guid: 4249c89715a85f44ebd766130a436e4a, type: 3}
+      propertyPath: m_EventPayload.m_Parameters.m_Parameters.Array.data[0].m_Value.m_ValueType
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7170521977286161895, guid: 4249c89715a85f44ebd766130a436e4a, type: 3}
+      propertyPath: m_EventPayload.m_Parameters.m_Parameters.Array.data[0].m_Value.m_PropertyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7170521977286161895, guid: 4249c89715a85f44ebd766130a436e4a, type: 3}
+      propertyPath: m_EventPayload.m_Parameters.m_Parameters.Array.data[0].m_Value.m_Target.m_Type
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7170521977286161895, guid: 4249c89715a85f44ebd766130a436e4a, type: 3}
+      propertyPath: m_Trigger.m_Rules.m_Rules.Array.data[0].m_Value.m_Target.m_ValidTypeNames.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7170521977286161895, guid: 4249c89715a85f44ebd766130a436e4a, type: 3}
+      propertyPath: m_Trigger.m_Rules.m_Rules.Array.data[1].m_Value.m_Target.m_ValidTypeNames.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7170521977286161895, guid: 4249c89715a85f44ebd766130a436e4a, type: 3}
+      propertyPath: m_Trigger.m_Rules.m_Rules.Array.data[2].m_Value.m_Target.m_ValidTypeNames.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7170521977286161895, guid: 4249c89715a85f44ebd766130a436e4a, type: 3}
+      propertyPath: m_EventPayload.m_Parameters.m_Parameters.Array.data[0].m_Value.m_Target.m_ValidTypeNames.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7170521977286161895, guid: 4249c89715a85f44ebd766130a436e4a, type: 3}
+      propertyPath: m_EventPayload.m_Parameters.m_Parameters.Array.data[0].m_Value.m_Target.m_ValidTypeNames.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7170521977286161895, guid: 4249c89715a85f44ebd766130a436e4a, type: 3}
+      propertyPath: m_EventPayload.m_Parameters.m_Parameters.Array.data[0].m_Value.m_Target.m_ValidTypeNames.Array.data[2]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7170521977286161895, guid: 4249c89715a85f44ebd766130a436e4a, type: 3}
+      propertyPath: m_EventPayload.m_Parameters.m_Parameters.Array.data[0].m_Value.m_Target.m_ValidTypeNames.Array.data[3]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7170521977286161895, guid: 4249c89715a85f44ebd766130a436e4a, type: 3}
+      propertyPath: m_EventPayload.m_Parameters.m_Parameters.Array.data[0].m_Value.m_Target.m_ValidTypeNames.Array.data[4]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7170521977286161895, guid: 4249c89715a85f44ebd766130a436e4a, type: 3}
+      propertyPath: m_EventPayload.m_Parameters.m_Parameters.Array.data[0].m_Value.m_Target.m_ValidTypeNames.Array.data[5]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7170521977286161895, guid: 4249c89715a85f44ebd766130a436e4a, type: 3}
+      propertyPath: m_EventPayload.m_Parameters.m_Parameters.Array.data[0].m_Value.m_Target.m_ValidTypeNames.Array.data[6]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7170521977286161895, guid: 4249c89715a85f44ebd766130a436e4a, type: 3}
+      propertyPath: m_EventPayload.m_Parameters.m_Parameters.Array.data[0].m_Value.m_Target.m_ValidTypeNames.Array.data[7]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7170521977286161914, guid: 4249c89715a85f44ebd766130a436e4a, type: 3}
       propertyPath: m_Name
       value: LevelManager

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Boost : MonoBehaviour {
+    public int distance = 60;
     // Start is called before the first frame update
     void Start () {
 
@@ -20,7 +21,7 @@ public class Boost : MonoBehaviour {
 
         // int end_x = Mathf.RoundToInt(other.transform.position.x - 4 * Mathf.Cos(2f * Mathf.PI / 180 * r));
         // int end_y = Mathf.RoundToInt(other.transform.position.y - 4 * Mathf.Sin(2f * Mathf.PI / 180 * r));
-        int end_x = x + 60;
+        int end_x = x + distance;
         int end_y = y;
 
         GameObject.Find ("HolderSpawner").GetComponent<HolderSpawner> ().EraseLine (x, y, end_x, end_y);

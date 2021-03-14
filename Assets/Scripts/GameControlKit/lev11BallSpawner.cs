@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class lev11BallSpawner : MonoBehaviour
-{
+public class lev11BallSpawner : MonoBehaviour {
     public GameObject ballPrefab1;
     public GameObject ballPrefab2;
     public int numBall;
@@ -29,7 +28,7 @@ public class lev11BallSpawner : MonoBehaviour
         base_pos2.x = base_pos2.x + (float) (numBall + 1) / 2 * distance;
         ball_Obj1 = Instantiate (ballPrefab1);
         ball_Obj1.transform.position = base_pos1;
-        ball_Obj2 = Instantiate(ballPrefab2);
+        ball_Obj2 = Instantiate (ballPrefab2);
         ball_Obj2.transform.position = base_pos2;
         levelManager.levelBallExist = 2;
         levelManager.levelBallArrived = 0;

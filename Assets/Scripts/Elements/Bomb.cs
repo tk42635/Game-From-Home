@@ -19,6 +19,6 @@ public class Bomb : MonoBehaviour {
         Destroy (gameObject);
         // levelManager.levelBallExist -= 1;
         // if (levelManager.levelBallExist == 0)
-            levelManager.LevelDone ();
+        levelManager.LevelDone ();
     }
 }

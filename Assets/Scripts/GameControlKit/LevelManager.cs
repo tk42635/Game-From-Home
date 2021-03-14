@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.Analytics;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour {
     public int score = 0;
@@ -31,29 +31,25 @@ public class LevelManager : MonoBehaviour {
         Debug.Log ("Score:" + score);
         int thislevel = int.Parse (SceneManager.GetActiveScene ().name);
         Debug.Log ("thislevel:" + thislevel);
-        if (levelBallArrived == levelBallMax && score >= requiredScoreToUnlock[thislevel])
-            {
-                UnlockNextLevel();
-                Instantiate(successDialogue, new Vector3(0, 0, 0), Quaternion.identity);
-            }
-        else
-            Instantiate(failureDialogue, new Vector3(0, 0, 0), Quaternion.identity);
-        
-        AnalyticsEvent.LevelComplete(SceneManager.GetActiveScene ().name, new Dictionary<string, object>() {
-            {"LevelBallArrivalRate", ((double)levelBallArrived / levelBallMax)}
+        if (levelBallArrived == levelBallMax && score >= requiredScoreToUnlock[thislevel]) {
+            UnlockNextLevel ();
+            Instantiate (successDialogue, new Vector3 (0, 0, 0), Quaternion.identity);
+        } else
+            Instantiate (failureDialogue, new Vector3 (0, 0, 0), Quaternion.identity);
+
+        AnalyticsEvent.LevelComplete (SceneManager.GetActiveScene ().name, new Dictionary<string, object> () { { "LevelBallArrivalRate", ((double) levelBallArrived / levelBallMax) }
         });
 
-        AnalyticsEvent.LevelComplete(SceneManager.GetActiveScene ().name, new Dictionary<string, object>() {
-            {"LevelScoringRate", ((double)score / requiredScoreToUnlock[thislevel])}
+        AnalyticsEvent.LevelComplete (SceneManager.GetActiveScene ().name, new Dictionary<string, object> () { { "LevelScoringRate", ((double) score / requiredScoreToUnlock[thislevel]) }
         });
         // Debug.Log ("levelBallArrived:" + levelBallArrived);
         // Debug.Log ("levelBallMax:" + requiredScoreToUnlock[thislevel]);
-    }   
+    }
     public void UnlockNextLevel () {
 
     }
     public void Restart () {
-        AnalyticsEvent.LevelFail(SceneManager.GetActiveScene ().name);
+        AnalyticsEvent.LevelFail (SceneManager.GetActiveScene ().name);
         SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
     }
     public void NextLevel () {

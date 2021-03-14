@@ -10,7 +10,7 @@ public class lev11Dest : MonoBehaviour {
     public int levelScore;
     // Start is called before the first frame update
     void Start () {
-        levelManager = FindObjectOfType<LevelManager> ();   
+        levelManager = FindObjectOfType<LevelManager> ();
     }
 
     // Update is called once per frame
@@ -19,15 +19,15 @@ public class lev11Dest : MonoBehaviour {
     }
 
     void OnTriggerEnter2D (Collider2D other) {
-        thisColor = gameObject.GetComponent<SpriteRenderer>().color;
-        otherColor = other.gameObject.GetComponent<SpriteRenderer>().color;
-        if(thisColor.Equals(otherColor)){
+        thisColor = gameObject.GetComponent<SpriteRenderer> ().color;
+        otherColor = other.gameObject.GetComponent<SpriteRenderer> ().color;
+        if (thisColor.Equals (otherColor)) {
 
             Destroy (other.gameObject);
-            
+
             levelManager.levelBallExist -= 1;
             levelManager.levelBallArrived += 1;
-            if (levelManager.levelBallExist == 0){
+            if (levelManager.levelBallExist == 0) {
                 levelManager.LevelDone ();
 
                 levelScore = levelManager.score;
@@ -45,7 +45,7 @@ public class lev11Dest : MonoBehaviour {
                         { "NumDiamondCollect", levelScore }
                     }
                 );
-            } 
+            }
         }
     }
 }

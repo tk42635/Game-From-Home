@@ -2,19 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoostToLeft : MonoBehaviour
-{
+public class BoostToLeft : MonoBehaviour {
     // Start is called before the first frame update
-    void Start()
-    {
-        
+    void Start () {
+
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
+    void Update () {
+
     }
+
     void OnTriggerEnter2D (Collider2D other) {
         Destroy (gameObject);
         int x = Mathf.RoundToInt ((transform.position.x - HolderSpawner.x_base) / HolderSpawner.step);

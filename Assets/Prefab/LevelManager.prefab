@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
-  maxlevel: 9
+  maxlevel: 11
   levelBallExist: 0
   levelBallArrived: 0
   levelBallMax: 0

@@ -31,20 +31,31 @@ public class LevelManager : MonoBehaviour {
         Debug.Log ("Score:" + score);
         int thislevel = int.Parse (SceneManager.GetActiveScene ().name);
         Debug.Log ("thislevel:" + thislevel);
+
+
         if (levelBallArrived == levelBallMax && score >= requiredScoreToUnlock[thislevel]) {
             UnlockNextLevel ();
             Instantiate (successDialogue, new Vector3 (0, 0, 0), Quaternion.identity);
-        } else
+        } else {
             Instantiate (failureDialogue, new Vector3 (0, 0, 0), Quaternion.identity);
+        }
+            
 
-        AnalyticsEvent.LevelComplete (SceneManager.GetActiveScene ().name, new Dictionary<string, object> () { { "LevelBallArrivalRate", ((double) levelBallArrived / levelBallMax) }
-        });
+        string thislevelString = "Level: " + thislevel.ToString();
 
-        AnalyticsEvent.LevelComplete (SceneManager.GetActiveScene ().name, new Dictionary<string, object> () { { "LevelScoringRate", ((double) score / requiredScoreToUnlock[thislevel]) }
-        });
-        // Debug.Log ("levelBallArrived:" + levelBallArrived);
-        // Debug.Log ("levelBallMax:" + requiredScoreToUnlock[thislevel]);
+        Dictionary<string, object> levelBallArrivalRate = new Dictionary<string, object> () { 
+                {thislevelString, ((double) levelBallArrived / levelBallMax) }
+        };
+        AnalyticsResult lvlCompBallAR = AnalyticsEvent.LevelComplete ("LevelBallArrivalRate", levelBallArrivalRate);
+
+        Dictionary<string, object> levelScoringRate = new Dictionary<string, object> () { 
+                {thislevelString, ((double) score / requiredScoreToUnlock[thislevel]) }
+        };
+        AnalyticsResult lvlCompScoreAR = AnalyticsEvent.LevelComplete ("LevelScoringRate", levelScoringRate );
+
+        AnalyticsEvent.LevelComplete(SceneManager.GetActiveScene ().name);
     }
+
     public void UnlockNextLevel () {
 
     }
@@ -63,6 +74,6 @@ public class LevelManager : MonoBehaviour {
             SceneManager.LoadScene ("Menu");
     }
     public void BacktoMenu () {
-        SceneManager.LoadScene ("Level Selector");
+        SceneManager.LoadScene ("Level Selector");  
     }
 }

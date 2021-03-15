@@ -14,6 +14,19 @@ public class IcePlatforms : MonoBehaviour {
     void Update () {
         m_SpriteRenderer = GetComponent<SpriteRenderer> ();
     }
+
+    void OnCollisionStay2D (Collision2D other) {
+        Rigidbody2D RIG = other.gameObject.GetComponent<Rigidbody2D> ();
+        // Debug.Log("Collision!");
+        if (Mathf.Abs (RIG.velocity.x) < 0.1f) {
+            if (other.transform.position.x >= gameObject.transform.position.x)
+                RIG.velocity = new Vector3 (0.1f, 0, 0);
+            else
+                RIG.velocity = new Vector3 (-0.1f, 0, 0);
+        }
+
+    }
+    
     void OnCollisionExit2D (Collision2D collision) {
         if (firstTime == true) {
             firstTime = false;

@@ -34,7 +34,7 @@ public class LevelManager : MonoBehaviour {
 
 
         if (levelBallArrived == levelBallMax && score >= requiredScoreToUnlock[thislevel]) {
-            UnlockNextLevel ();
+            UnlockNextLevel (thislevel + 1);
             Instantiate (successDialogue, new Vector3 (0, 0, 0), Quaternion.identity);
         } else {
             Instantiate (failureDialogue, new Vector3 (0, 0, 0), Quaternion.identity);
@@ -56,8 +56,8 @@ public class LevelManager : MonoBehaviour {
         AnalyticsEvent.LevelComplete(SceneManager.GetActiveScene ().name);
     }
 
-    public void UnlockNextLevel () {
-
+    public void UnlockNextLevel (int NextLevel) {
+        PlayerPrefs.SetInt("levelReached", NextLevel);
     }
     public void Restart () {
         AnalyticsEvent.LevelFail (SceneManager.GetActiveScene ().name);

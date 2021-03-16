@@ -4,13 +4,17 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System;
+using UnityEngine.EventSystems;
 
-public class LevelSelector : MonoBehaviour {
+public class LevelSelector : MonoBehaviour, IPointerClickHandler {
     public Button[] levelButtons;
+    public const String LEVEL_REACHED = "levelReached";
+    int tap = 0;
+
 
     void Start () {
         levelButtons = FindObjectsOfType<Button>();
-        int levelReached = PlayerPrefs.GetInt ("levelReached", 1);
+        int levelReached = PlayerPrefs.GetInt (LevelSelector.LEVEL_REACHED, 1);
         Debug.Log ("levelReached: " + levelReached);
         for (int i = 0; i < levelButtons.Length; i++) {
             if(levelButtons[i].tag.Equals("playbutton"))
@@ -26,4 +30,23 @@ public class LevelSelector : MonoBehaviour {
         Debug.Log ("Enter: " + levelName);
         SceneManager.LoadScene (levelName);
     }
+
+
+    public void OnPointerClick(PointerEventData eventData) {
+        tap = eventData.clickCount;
+        Debug.Log("Tap: " + tap);
+        if (tap == 3) {
+            UnLockAllLevel();
+        }
+    }
+
+
+    private void UnLockAllLevel() {
+        for (int i = 0; i < levelButtons.Length; i++) {
+            if (levelButtons[i].tag.Equals("playbutton")) {
+                levelButtons[i].interactable = true;
+            }
+        }
+    }
+
 }

@@ -57,12 +57,14 @@ public class LevelManager : MonoBehaviour {
     }
 
     public void UnlockNextLevel (int NextLevel) {
-        PlayerPrefs.SetInt("levelReached", NextLevel);
+        PlayerPrefs.SetInt(LevelSelector.LEVEL_REACHED, NextLevel);
     }
+
     public void Restart () {
         AnalyticsEvent.LevelFail (SceneManager.GetActiveScene ().name);
         SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
     }
+
     public void NextLevel () {
         int thislevel = int.Parse (SceneManager.GetActiveScene ().name);
         int nextlevel = thislevel + 1;
@@ -73,7 +75,19 @@ public class LevelManager : MonoBehaviour {
         else
             SceneManager.LoadScene ("Menu");
     }
+
     public void BacktoMenu () {
         SceneManager.LoadScene ("Level Selector");  
     }
+
+    public int getScore() {
+        return score;
+    }
+
+    public int getRequiredScore() {
+        int thislevel = int.Parse(SceneManager.GetActiveScene().name);
+        return requiredScoreToUnlock[thislevel];
+    }
+
+    
 }

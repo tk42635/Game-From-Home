@@ -11,10 +11,10 @@ public class Dialogue : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start () {
-        int DiamondNotGetNum = levelManager.getRequiredScore() - levelManager.getScore();
         Debug.Log ("Dialog Start");
         levelManager = FindObjectOfType<LevelManager> ();
         int DiamondGetNum = levelManager.getScore ();
+        int DiamondNotGetNum = levelManager.getTotalScore () - levelManager.getScore ();
         for (int i = 0; i < DiamondGetNum; i++) {
             GameObject NewDiamond = Instantiate (Diamond, transform.position, transform.rotation);
             NewDiamond.transform.parent = DiamondsLayout.transform;

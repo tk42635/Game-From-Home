@@ -11,6 +11,7 @@ public class LevelManager : MonoBehaviour {
     public int levelBallArrived;
     public int levelBallMax;
     public static readonly int[] requiredScoreToUnlock = { 0, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 6 };
+    public static readonly int[] totalScore = { 0, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 10 };
     public GameObject successDialogue;
     public GameObject failureDialogue;
 
@@ -83,6 +84,11 @@ public class LevelManager : MonoBehaviour {
     public int getRequiredScore () {
         int thislevel = int.Parse (SceneManager.GetActiveScene ().name);
         return requiredScoreToUnlock[thislevel];
+    }
+
+    public int getTotalScore () {
+        int thislevel = int.Parse (SceneManager.GetActiveScene ().name);
+        return totalScore[thislevel];
     }
 
 }

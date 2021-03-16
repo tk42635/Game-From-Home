@@ -32,32 +32,28 @@ public class LevelManager : MonoBehaviour {
         int thislevel = int.Parse (SceneManager.GetActiveScene ().name);
         Debug.Log ("thislevel:" + thislevel);
 
-
         if (levelBallArrived == levelBallMax && score >= requiredScoreToUnlock[thislevel]) {
             UnlockNextLevel (thislevel + 1);
             Instantiate (successDialogue, new Vector3 (0, 0, 0), Quaternion.identity);
         } else {
             Instantiate (failureDialogue, new Vector3 (0, 0, 0), Quaternion.identity);
         }
-            
 
-        string thislevelString = "Level: " + thislevel.ToString();
+        string thislevelString = "Level: " + thislevel.ToString ();
 
-        Dictionary<string, object> levelBallArrivalRate = new Dictionary<string, object> () { 
-                {thislevelString, ((double) levelBallArrived / levelBallMax) }
+        Dictionary<string, object> levelBallArrivalRate = new Dictionary<string, object> () { { thislevelString, ((double) levelBallArrived / levelBallMax) }
         };
         AnalyticsResult lvlCompBallAR = AnalyticsEvent.LevelComplete ("LevelBallArrivalRate", levelBallArrivalRate);
 
-        Dictionary<string, object> levelScoringRate = new Dictionary<string, object> () { 
-                {thislevelString, ((double) score / requiredScoreToUnlock[thislevel]) }
+        Dictionary<string, object> levelScoringRate = new Dictionary<string, object> () { { thislevelString, ((double) score / requiredScoreToUnlock[thislevel]) }
         };
-        AnalyticsResult lvlCompScoreAR = AnalyticsEvent.LevelComplete ("LevelScoringRate", levelScoringRate );
+        AnalyticsResult lvlCompScoreAR = AnalyticsEvent.LevelComplete ("LevelScoringRate", levelScoringRate);
 
-        AnalyticsEvent.LevelComplete(SceneManager.GetActiveScene ().name);
+        AnalyticsEvent.LevelComplete (SceneManager.GetActiveScene ().name);
     }
 
     public void UnlockNextLevel (int NextLevel) {
-        PlayerPrefs.SetInt(LevelSelector.LEVEL_REACHED, NextLevel);
+        PlayerPrefs.SetInt (LevelSelector.LEVEL_REACHED, NextLevel);
     }
 
     public void Restart () {
@@ -77,17 +73,16 @@ public class LevelManager : MonoBehaviour {
     }
 
     public void BacktoMenu () {
-        SceneManager.LoadScene ("Level Selector");  
+        SceneManager.LoadScene ("Level Selector");
     }
 
-    public int getScore() {
+    public int getScore () {
         return score;
     }
 
-    public int getRequiredScore() {
-        int thislevel = int.Parse(SceneManager.GetActiveScene().name);
+    public int getRequiredScore () {
+        int thislevel = int.Parse (SceneManager.GetActiveScene ().name);
         return requiredScoreToUnlock[thislevel];
     }
 
-    
 }

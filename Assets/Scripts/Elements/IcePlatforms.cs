@@ -26,7 +26,7 @@ public class IcePlatforms : MonoBehaviour {
         }
 
     }
-    
+
     void OnCollisionExit2D (Collision2D collision) {
         if (firstTime == true) {
             firstTime = false;

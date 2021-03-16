@@ -1831,6 +1831,24 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &1225901172 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6258073018270164951, guid: 4b0dccd51f8e24f7f811414e875e5013, type: 3}
+  m_PrefabInstance: {fileID: 1352037328}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1225901173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1225901172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d566d9a74119f40df8bb59023bd273d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelButtons: []
 --- !u!114 &1226682210 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6258073018270164945, guid: 4b0dccd51f8e24f7f811414e875e5013, type: 3}

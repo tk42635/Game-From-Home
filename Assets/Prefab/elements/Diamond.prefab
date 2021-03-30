@@ -130,3 +130,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   diamondValue: 1
+  diamondsAudio: {fileID: 0}
+  audioClip: {fileID: 0}

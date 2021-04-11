@@ -19,8 +19,10 @@ public class Portal : MonoBehaviour {
         ball.parent = transform;
         Vector3 lp = ball.localPosition;
         Quaternion lr = ball.localRotation;
+        Vector3 ls = ball.localScale;
         ball.parent = destination;
         ball.localPosition = lp;
         ball.localRotation = lr;
+        ball.localScale = ls;
     }
 }

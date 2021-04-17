@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Diamond
   - playbutton
+  - itembutton
   layers:
   - Default
   - TransparentFX

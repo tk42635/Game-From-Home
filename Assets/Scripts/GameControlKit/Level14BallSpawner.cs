@@ -1,10 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using Cinemachine;
+using UnityEngine;
 
-public class Level14BallSpawner : MonoBehaviour
-{
+public class Level14BallSpawner : MonoBehaviour {
     public GameObject ballPrefab;
     public int numBall;
     public float distance = 1f;
@@ -37,7 +36,7 @@ public class Level14BallSpawner : MonoBehaviour
     }
 
     public void SetCMVcam () {
-        var vcam1 = GameObject.Find("CM vcam1").GetComponent<CinemachineVirtualCameraBase>();
-        vcam1.Follow = GameObject.Find("Ball(Clone)").transform;
+        var vcam1 = GameObject.Find ("CM vcam1").GetComponent<CinemachineVirtualCameraBase> ();
+        vcam1.Follow = GameObject.Find ("Ball(Clone)").transform;
     }
 }

@@ -33,7 +33,7 @@ public class LevelManager : MonoBehaviour {
         int thislevel = int.Parse (SceneManager.GetActiveScene ().name);
         Debug.Log ("thislevel:" + thislevel);
 
-        float mainCameraY = GameObject.Find("Main Camera").transform.position.y;
+        float mainCameraY = GameObject.Find ("Main Camera").transform.position.y;
         if (levelBallArrived == levelBallMax && score >= requiredScoreToUnlock[thislevel]) {
             UnlockNextLevel (thislevel + 1);
             Instantiate (successDialogue, new Vector3 (0, mainCameraY, 0), Quaternion.identity);

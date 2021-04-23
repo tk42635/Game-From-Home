@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovingIce : MonoBehaviour
-{
+public class MovingIce : MonoBehaviour {
     private float min_X = -1.4f, max_X = 1.4f;
     private bool canMove;
     private float move_Speed = 2f;
@@ -11,27 +10,25 @@ public class MovingIce : MonoBehaviour
     private bool firstTime;
     SpriteRenderer m_SpriteRenderer;
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start () {
         canMove = true;
         firstTime = true;
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update () {
         m_SpriteRenderer = GetComponent<SpriteRenderer> ();
-        MoveIcePlatforms();
+        MoveIcePlatforms ();
     }
-    
-    void MoveIcePlatforms(){
-        if(canMove){
+
+    void MoveIcePlatforms () {
+        if (canMove) {
             Vector3 temp = transform.position;
             temp.x += move_Speed * Time.deltaTime;
 
-            if(temp.x > max_X){
+            if (temp.x > max_X) {
                 move_Speed *= -1f;
-            }else if(temp.x < min_X){
+            } else if (temp.x < min_X) {
                 move_Speed *= -1f;
             }
             transform.position = temp;
@@ -54,10 +51,10 @@ public class MovingIce : MonoBehaviour
         if (firstTime == true) {
             firstTime = false;
             m_SpriteRenderer.color = Color.gray;
-        } else{
+        } else {
             canMove = false;
             Destroy (gameObject);
         }
-            
+
     }
 }

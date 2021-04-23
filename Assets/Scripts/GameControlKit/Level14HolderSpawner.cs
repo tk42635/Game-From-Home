@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Level14HolderSpawner : MonoBehaviour
-{
+public class Level14HolderSpawner : MonoBehaviour {
 	public GameObject holder_Prefab;
 
 	//mouse control

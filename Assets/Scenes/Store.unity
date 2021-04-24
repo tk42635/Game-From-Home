@@ -1227,7 +1227,7 @@ GameObject:
   - component: {fileID: 538217159}
   - component: {fileID: 538217158}
   m_Layer: 5
-  m_Name: Magic Filler
+  m_Name: MagicFiller
   m_TagString: itembutton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1533,6 +1533,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   haveItem: 
   price: 020000000300000002000000040000000100000001000000
+  buttonName:
+  - Protector
+  - Magic Filler
+  - Collector
+  - Magnet
+  - One-Time Diamond
+  - Size Changer
   itemButtons: []
 --- !u!4 &996653089
 Transform:

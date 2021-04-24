@@ -10,8 +10,7 @@ public class StoreManager : MonoBehaviour {
     private int coins;
     public bool[] haveItem;
     public int[] price = { 2, 3, 2, 4, 1, 1 };
-    public Dictionary<string, int> buttonName = new Dictionary<string, int> () { { "Protector", 0 }, { "Magic Fillor", 1 }, { "Collector", 2 }, { "Magnet", 3 }, { "One-Time Diamond", 4 }, { "Size Changer", 5 },
-    };
+    public string[] buttonName = { "Protector", "Magic Filler", "Collector", "Magnet", "One-Time Diamond", "Size Changer"};
     public Button[] itemButtons;
     public static Text text;
     
@@ -21,8 +20,11 @@ public class StoreManager : MonoBehaviour {
         coins = PlayerPrefs.GetInt ("Coins", 0);
         itemButtons = FindObjectsOfType<Button> ();
         haveItem = new bool[6];
-        for(int i = 0; i <6; i++)
+        for(int i = 0; i < 6; i++)
+        {
             haveItem[i] = (PlayerPrefs.GetInt ("Item_" + i, 0) == 1);
+            if(haveItem[i]) GameObject.Find(buttonName[i]).GetComponent<Button>().interactable = false;
+        }
         text = GameObject.Find("Coins").GetComponent<Text>();
     }
 
@@ -39,6 +41,7 @@ public class StoreManager : MonoBehaviour {
         {
             coins -= price[id];
             haveItem[id] = true;
+            PlayerPrefs.SetInt ("Coins", coins);
             PlayerPrefs.SetInt ("Item_" + id, 1);
             btn.interactable = false;
             Debug.Log ("Successful to purchase");

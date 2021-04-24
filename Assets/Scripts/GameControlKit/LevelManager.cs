@@ -38,11 +38,17 @@ public class LevelManager : MonoBehaviour {
     public void LevelDone () {
         int thislevel = int.Parse (SceneManager.GetActiveScene ().name);
         Debug.Log ("thislevel:" + thislevel);
-        Debug.Log(diamondActivated);
         if(doublerActivated) 
+        {
             score = score * 2 > requiredScoreToUnlock[thislevel] ? requiredScoreToUnlock[thislevel] : score * 2;
+            doublerActivated = false;
+        }
         if(diamondActivated)
+        {
             score = score + 1 > requiredScoreToUnlock[thislevel] ? requiredScoreToUnlock[thislevel] : score + 1;
+            diamondActivated = false;
+        }
+        
         Debug.Log ("Score:" + score);
         
 
@@ -70,7 +76,10 @@ public class LevelManager : MonoBehaviour {
     public void UnlockNextLevel (int NextLevel) {
         PlayerPrefs.SetInt (LevelSelector.LEVEL_REACHED, NextLevel);
         if(doublerActivated)
+        {
             PlayerPrefs.SetInt ("Coins", PlayerPrefs.GetInt ("Coins", 0) + 2);
+            doublerActivated = false;
+        }
         else
             PlayerPrefs.SetInt ("Coins", PlayerPrefs.GetInt ("Coins", 0) + 1);
     }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class BagManager : MonoBehaviour
 {
@@ -29,7 +30,8 @@ public class BagManager : MonoBehaviour
     }
 
     public void OnMouseDown () {
-        CreateBag();
+        if (!EventSystem.current.IsPointerOverGameObject())
+            CreateBag();
     }
 
     public void CreateBag() {

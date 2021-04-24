@@ -13,19 +13,12 @@ public class StoreManager : MonoBehaviour {
     public Dictionary<string, int> buttonName = new Dictionary<string, int> () { { "Protector", 0 }, { "Magic Fillor", 1 }, { "Collector", 2 }, { "Magnet", 3 }, { "One-Time Diamond", 4 }, { "Size Changer", 5 },
     };
     public Button[] itemButtons;
-<<<<<<< HEAD
     public static Text text;
     
     // Start is called before the first frame update
     void Start()
     {
         coins = PlayerPrefs.GetInt ("Coins", 0);
-=======
-
-    // Start is called before the first frame update
-    void Start () {
-        coins = 10;
->>>>>>> 2e7e2c4f8c21e85e83f8476d1d7dee5701dd2ce7
         itemButtons = FindObjectsOfType<Button> ();
         haveItem = new bool[6];
         for(int i = 0; i <6; i++)
@@ -34,7 +27,6 @@ public class StoreManager : MonoBehaviour {
     }
 
     // Update is called once per frame
-<<<<<<< HEAD
     void Update()
     {
         text.text = "you have " + coins;
@@ -45,15 +37,6 @@ public class StoreManager : MonoBehaviour {
         Button btn = EventSystem.current.currentSelectedGameObject.GetComponent<Button>();
         if(coins >= price[id])
         {
-=======
-    void Update () {
-
-    }
-
-    public void purchase (int id) {
-        Button btn = EventSystem.current.currentSelectedGameObject.GetComponent<Button> ();
-        if (coins >= price[id]) {
->>>>>>> 2e7e2c4f8c21e85e83f8476d1d7dee5701dd2ce7
             coins -= price[id];
             haveItem[id] = true;
             PlayerPrefs.SetInt ("Item_" + id, 1);
@@ -63,7 +46,6 @@ public class StoreManager : MonoBehaviour {
             Debug.Log ("Failed to purchase");
         }
     }
-<<<<<<< HEAD
 
     public void NextLevel()
     {
@@ -74,6 +56,3 @@ public class StoreManager : MonoBehaviour {
             SceneManager.LoadScene ("Menu");
     }
 }
-=======
-}
->>>>>>> 2e7e2c4f8c21e85e83f8476d1d7dee5701dd2ce7

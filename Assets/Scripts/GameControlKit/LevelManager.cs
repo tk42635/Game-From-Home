@@ -6,12 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour {
     public int score = 0;
-    public const int maxlevel = 12;
+    public const int maxlevel = 15;
     public int levelBallExist;
     public int levelBallArrived;
     public int levelBallMax;
-    public static readonly int[] requiredScoreToUnlock = { 0, 3, 3, 3, 3, 3, 1, 2, 3, 3, 3, 6 };
-    public static readonly int[] totalScore = { 0, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 10 };
+    public static readonly int[] requiredScoreToUnlock = { 0, 3, 3, 3, 3, 3, 1, 2, 3, 3, 3, 6, 0, 0, 6, 2 };
+    public static readonly int[] totalScore = { 0, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 10, 0, 0, 10, 3 };
     public GameObject successDialogue;
     public GameObject failureDialogue;
     public GameObject ItemDialogue;
@@ -45,11 +45,13 @@ public class LevelManager : MonoBehaviour {
             score = score + 1 > requiredScoreToUnlock[thislevel] ? requiredScoreToUnlock[thislevel] : score + 1;
         Debug.Log ("Score:" + score);
         
+
+        float mainCameraY = GameObject.Find ("Main Camera").transform.position.y;
         if (levelBallArrived == levelBallMax && score >= requiredScoreToUnlock[thislevel]) {
             UnlockNextLevel (thislevel + 1);
-            Instantiate (successDialogue, new Vector3 (0, 0, 0), Quaternion.identity);
+            Instantiate (successDialogue, new Vector3 (0, mainCameraY, 0), Quaternion.identity);
         } else {
-            Instantiate (failureDialogue, new Vector3 (0, 0, 0), Quaternion.identity);
+            Instantiate (failureDialogue, new Vector3 (0, mainCameraY, 0), Quaternion.identity);
         }
 
         string thislevelString = "Level: " + thislevel.ToString ();

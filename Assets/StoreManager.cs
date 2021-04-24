@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using static LevelManager;
 
 public class StoreManager : MonoBehaviour
 {
@@ -19,28 +20,33 @@ public class StoreManager : MonoBehaviour
         {"Size Changer", 5},
     };
     public Button[] itemButtons;
+    public static Text text;
     
     // Start is called before the first frame update
     void Start()
     {
-        coins = 10;
+        coins = PlayerPrefs.GetInt ("Coins", 0);
         itemButtons = FindObjectsOfType<Button> ();
         haveItem = new bool[6];
+        for(int i = 0; i <6; i++)
+            haveItem[i] = (PlayerPrefs.GetInt ("Item_" + i, 0) == 1);
+        text = GameObject.Find("Coins").GetComponent<Text>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        text.text = "you have " + coins;
     }
 
-    public void purchase(int id)
+    public void Purchase(int id)
     {
         Button btn = EventSystem.current.currentSelectedGameObject.GetComponent<Button>();
         if(coins >= price[id])
         {
             coins -= price[id];
             haveItem[id] = true;
+            PlayerPrefs.SetInt ("Item_" + id, 1);
             btn.interactable = false;
             Debug.Log ("Successful to purchase");
         }
@@ -48,5 +54,14 @@ public class StoreManager : MonoBehaviour
         {
             Debug.Log ("Failed to purchase");
         }
+    }
+
+    public void NextLevel()
+    {
+        int nextlevel = PlayerPrefs.GetInt ("CurLevel", 1) + 1;
+        if (nextlevel <= LevelManager.maxlevel)
+            SceneManager.LoadScene (nextlevel.ToString ());
+        else
+            SceneManager.LoadScene ("Menu");
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.EventSystems;
 using UnityEngine;
 
 public class BacktoMenu : MonoBehaviour {
@@ -15,7 +16,11 @@ public class BacktoMenu : MonoBehaviour {
     }
 
     public void OnMouseDown () {
-        Debug.Log ("restart current level");
-        levelManager.BacktoMenu ();
+        if(!EventSystem.current.IsPointerOverGameObject())
+        {
+            Debug.Log ("restart current level");
+            levelManager.BacktoMenu (); 
+        }
+        
     }
 }

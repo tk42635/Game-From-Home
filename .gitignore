@@ -29,9 +29,9 @@
 
 .vscode/
 .vsconfig
-# .gitignore
-# /ProjectSettings/
-# /Packages/
+.gitignore
+/ProjectSettings/
+/Packages/
 
 .gradle/
 

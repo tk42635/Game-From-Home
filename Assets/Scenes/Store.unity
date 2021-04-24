@@ -1227,7 +1227,7 @@ GameObject:
   - component: {fileID: 538217159}
   - component: {fileID: 538217158}
   m_Layer: 5
-  m_Name: MagicFiller
+  m_Name: Magic Filler
   m_TagString: itembutton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -57,7 +57,6 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -110,11 +109,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a961295c477fa84bb4f3cedc049c473, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BagDialogue: {fileID: 6696286186727036591, guid: d6ce7efc000035a48929091e490dfb5f, type: 3}
+  BagDialogue: {fileID: 5415266151012492610, guid: d6ce7efc000035a48929091e490dfb5f, type: 3}
   BagElement:
-  - {fileID: 6440244214078707604, guid: bff02746d00975645b92b825c7618423, type: 3}
-  - {fileID: 3273134893841607983, guid: 6b2d3c10aa046bc4e91e3b51e38aa26b, type: 3}
-  - {fileID: 6211409465991776432, guid: 87708daa329794e439a5a90c26db2171, type: 3}
-  - {fileID: 1477282188171011821, guid: b330f8d4139b9534aa7d367658f7c7fc, type: 3}
-  - {fileID: 1390312974195692775, guid: 19058955ceb90ed42a9978fef2d2248a, type: 3}
-  - {fileID: 159564443686391754, guid: 3ac5648d775563a4086ff155b19991f7, type: 3}
+  - {fileID: 1348383349104275324, guid: bff02746d00975645b92b825c7618423, type: 3}
+  - {fileID: 4688573490857499641, guid: 6b2d3c10aa046bc4e91e3b51e38aa26b, type: 3}
+  - {fileID: 360877535523585525, guid: 87708daa329794e439a5a90c26db2171, type: 3}
+  - {fileID: 7710471240411730729, guid: b330f8d4139b9534aa7d367658f7c7fc, type: 3}
+  - {fileID: 8188490333336923633, guid: 19058955ceb90ed42a9978fef2d2248a, type: 3}
+  - {fileID: 5466216871999177120, guid: 3ac5648d775563a4086ff155b19991f7, type: 3}

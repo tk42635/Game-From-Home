@@ -94,7 +94,7 @@ public class LevelManager : MonoBehaviour {
         int nextlevel = thislevel + 1;
         Debug.Log ("nextlevel:" + nextlevel);
         Debug.Log ("maxlevel:" + maxlevel);
-        SceneManager.LoadScene("Store");
+        SceneManager.LoadScene ("Store in Level");
         // if (nextlevel <= maxlevel)
         //     SceneManager.LoadScene (nextlevel.ToString ());
         // else

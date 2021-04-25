@@ -46,7 +46,7 @@ public class BagManager : MonoBehaviour
         {
             if(haveItem[i])
             {
-                var tmp = Instantiate (BagElement[i], loc[cur], Quaternion.identity);
+                var tmp = Instantiate (BagElement[i]);
                 tmp.transform.SetParent(Bag.transform, false);
                 cur++;
             }

@@ -23,16 +23,16 @@ public class HolderSpawner : MonoBehaviour {
 	//horizontal: initial_i_count
 	//vertical: initial_i_count
 	//vertical: initial_i_count
-	const int initial_i_count = 3;
-	const int initial_j_count = 6;
-	const int initial_s = 32;
-	const int i_count = initial_i_count * initial_s;
-	const int j_count = initial_j_count * initial_s;
+	public int initial_i_count = 3;
+	public int initial_j_count = 6;
+	public int initial_s = 32;
+	public int i_count = 96;
+	public int j_count = 192;
 
 	//holder_info: store the side length of the square to which each pixel belongs
 	//holder_info_temp: used for comparison to reduce repeated changes
-	int[] holder_info = new int[i_count * j_count];
-	int[] holder_info_temp = new int[i_count * j_count];
+	int[] holder_info = new int[40000];
+	int[] holder_info_temp = new int[40000];
 
 	//erase_list: store holder's information for delayed destruction
 	List<int[]> erase_list = new List<int[]> ();

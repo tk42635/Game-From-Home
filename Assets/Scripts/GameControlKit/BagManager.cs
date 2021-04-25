@@ -27,7 +27,8 @@ public class BagManager : MonoBehaviour {
 
     public void CreateBag () {
         Debug.Log ("Bag");
-        var Bag = (GameObject) Instantiate (BagDialogue, new Vector3 (0, 0, 0), Quaternion.identity);
+        float mainCameraY = GameObject.Find ("Main Camera").transform.position.y;
+        var Bag = (GameObject) Instantiate (BagDialogue, new Vector3 (0, mainCameraY, 0), Quaternion.identity);
         GameObject.Find ("HolderSpawner").GetComponent<HolderSpawner> ().Disable ();
         Bag.name = "BagDialogue";
 

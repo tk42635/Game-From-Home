@@ -38,19 +38,16 @@ public class LevelManager : MonoBehaviour {
     public void LevelDone () {
         int thislevel = int.Parse (SceneManager.GetActiveScene ().name);
         Debug.Log ("thislevel:" + thislevel);
-        if(doublerActivated) 
-        {
+        if (doublerActivated) {
             score = score * 2 > requiredScoreToUnlock[thislevel] ? requiredScoreToUnlock[thislevel] : score * 2;
             doublerActivated = false;
         }
-        if(diamondActivated)
-        {
+        if (diamondActivated) {
             score = score + 1 > requiredScoreToUnlock[thislevel] ? requiredScoreToUnlock[thislevel] : score + 1;
             diamondActivated = false;
         }
-        
+
         Debug.Log ("Score:" + score);
-        
 
         float mainCameraY = GameObject.Find ("Main Camera").transform.position.y;
         if (levelBallArrived == levelBallMax && score >= requiredScoreToUnlock[thislevel]) {
@@ -75,12 +72,10 @@ public class LevelManager : MonoBehaviour {
 
     public void UnlockNextLevel (int NextLevel) {
         PlayerPrefs.SetInt (LevelSelector.LEVEL_REACHED, NextLevel);
-        if(doublerActivated)
-        {
+        if (doublerActivated) {
             PlayerPrefs.SetInt ("Coins", PlayerPrefs.GetInt ("Coins", 0) + 2);
             doublerActivated = false;
-        }
-        else
+        } else
             PlayerPrefs.SetInt ("Coins", PlayerPrefs.GetInt ("Coins", 0) + 1);
     }
 
@@ -119,11 +114,10 @@ public class LevelManager : MonoBehaviour {
         return totalScore[thislevel];
     }
 
-    public void ActivateItem() {
-        if(selectedItemID == -1) return;
-        Debug.Log("activated " + selectedItemID);
-        switch (selectedItemID)
-        {
+    public void ActivateItem () {
+        if (selectedItemID == -1) return;
+        Debug.Log ("activated " + selectedItemID);
+        switch (selectedItemID) {
             case 0:
                 protectorAvtivated = true;
                 break;
@@ -133,7 +127,7 @@ public class LevelManager : MonoBehaviour {
                 doublerActivated = true;
                 break;
             case 3:
-                DestroyAllBombs();
+                DestroyAllBombs ();
                 break;
             case 4:
                 diamondActivated = true;
@@ -143,37 +137,35 @@ public class LevelManager : MonoBehaviour {
         }
         PlayerPrefs.SetInt ("Item_" + selectedItemID, 0);
         selectedItemID = -1;
-        
+
         diamondActivated = true;
-        var tmp = GameObject.Find("ItemDialogue");
+        var tmp = GameObject.Find ("ItemDialogue");
         GameObject.DestroyImmediate (tmp);
 
         bagManager = FindObjectOfType<BagManager> ();
-        bagManager.Close();
-        bagManager.CreateBag();
+        bagManager.Close ();
+        bagManager.CreateBag ();
     }
 
-    public void DestroyAllBombs() {
-        var bombs = GameObject.Find("BombLitSprites");
+    public void DestroyAllBombs () {
+        var bombs = GameObject.Find ("BombLitSprites");
         //var tmp = FindObjectOfType<Bomb> ();
         // foreach (Transform child in bombs) {
         //     Destroy(child.gameObject);
         //  }
-        Destroy(bombs);
+        Destroy (bombs);
     }
 
-    public void OpenItemDialogue(int ItemID) {
+    public void OpenItemDialogue (int ItemID) {
         selectedItemID = ItemID;
         var tmp = Instantiate (ItemDialogue, new Vector3 (0, 0, 0), Quaternion.identity);
         tmp.name = "ItemDialogue";
     }
 
-    public void CloseItemDialogue() {
+    public void CloseItemDialogue () {
         selectedItemID = -1;
-        var tmp = GameObject.Find("ItemDialogue");
+        var tmp = GameObject.Find ("ItemDialogue");
         GameObject.DestroyImmediate (tmp);
     }
-
-
 
 }

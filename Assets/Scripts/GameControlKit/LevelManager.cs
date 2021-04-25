@@ -52,8 +52,10 @@ public class LevelManager : MonoBehaviour {
         float mainCameraY = GameObject.Find ("Main Camera").transform.position.y;
         if (levelBallArrived == levelBallMax && score >= requiredScoreToUnlock[thislevel]) {
             UnlockNextLevel (thislevel + 1);
+            GameObject.Find ("HolderSpawner").GetComponent<HolderSpawner> ().Disable ();
             Instantiate (successDialogue, new Vector3 (0, mainCameraY, 0), Quaternion.identity);
         } else {
+            GameObject.Find ("HolderSpawner").GetComponent<HolderSpawner> ().Disable ();
             Instantiate (failureDialogue, new Vector3 (0, mainCameraY, 0), Quaternion.identity);
         }
 
@@ -82,6 +84,7 @@ public class LevelManager : MonoBehaviour {
     public void Restart () {
         AnalyticsEvent.LevelFail (SceneManager.GetActiveScene ().name);
         SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
+        GameObject.Find ("HolderSpawner").GetComponent<HolderSpawner> ().Enable ();
     }
 
     public void NextLevel () {
@@ -90,6 +93,7 @@ public class LevelManager : MonoBehaviour {
         Debug.Log ("nextlevel:" + nextlevel);
         Debug.Log ("maxlevel:" + maxlevel);
         SceneManager.LoadScene ("Store in Level");
+        GameObject.Find ("HolderSpawner").GetComponent<HolderSpawner> ().Enable ();
         // if (nextlevel <= maxlevel)
         //     SceneManager.LoadScene (nextlevel.ToString ());
         // else

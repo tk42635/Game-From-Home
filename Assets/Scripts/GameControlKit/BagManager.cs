@@ -28,6 +28,7 @@ public class BagManager : MonoBehaviour {
     public void CreateBag () {
         Debug.Log ("Bag");
         var Bag = (GameObject) Instantiate (BagDialogue, new Vector3 (0, 0, 0), Quaternion.identity);
+        GameObject.Find ("HolderSpawner").GetComponent<HolderSpawner> ().Disable ();
         Bag.name = "BagDialogue";
 
         bool[] haveItem = new bool[6];
@@ -49,6 +50,7 @@ public class BagManager : MonoBehaviour {
         Debug.Log ("Close");
         var tmp = GameObject.Find ("BagDialogue");
         GameObject.DestroyImmediate (tmp);
+        GameObject.Find ("HolderSpawner").GetComponent<HolderSpawner> ().Enable ();
     }
 
 }

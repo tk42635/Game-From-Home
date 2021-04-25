@@ -9,6 +9,7 @@ public class HolderSpawner : MonoBehaviour {
 
 	//mouse control
 	bool prev_mousedown = false;
+	bool holder_enable = true;
 	int prev_i, prev_j;
 
 	//const
@@ -44,7 +45,7 @@ public class HolderSpawner : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (!EventSystem.current.IsPointerOverGameObject () && Input.GetMouseButton (0)) {
+		if (holder_enable && Input.GetMouseButton (0)) {
 			float mouse_x, mouse_y;
 			int mouse_i, mouse_j;
 
@@ -208,5 +209,13 @@ public class HolderSpawner : MonoBehaviour {
 		holder_Obj = Instantiate (holder_Prefab, new Vector3 (x, y, 0f), Quaternion.identity);
 		holder_Obj.transform.localScale = new Vector3 (s * step, s * step, 1f);
 		holder_Obj.name = "holder_" + s + "_" + i + "_" + j;
+	}
+
+	public void Disable () {
+		holder_enable = false;
+	}
+
+	public void Enable () {
+		holder_enable = true;
 	}
 }

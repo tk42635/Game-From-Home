@@ -19,17 +19,15 @@ public class Bomb : MonoBehaviour {
     }
 
     void OnTriggerEnter2D (Collider2D other) {
-        if(!LevelManager.protectorAvtivated)
-        {
+        if (!LevelManager.protectorAvtivated) {
             Destroy (other.gameObject);
             Destroy (gameObject);
-            AudioSource.PlayClipAtPoint(boomAudioClip, transform.position, 100);
-            AudioSource.PlayClipAtPoint(gameOverAudioClip, transform.position, 100);
+            AudioSource.PlayClipAtPoint (boomAudioClip, transform.position, 100);
+            AudioSource.PlayClipAtPoint (gameOverAudioClip, transform.position, 100);
             // levelManager.levelBallExist -= 1;
             // if (levelManager.levelBallExist == 0)
             levelManager.LevelDone ();
-        }
-        else
+        } else
             LevelManager.protectorAvtivated = false;
     }
 }

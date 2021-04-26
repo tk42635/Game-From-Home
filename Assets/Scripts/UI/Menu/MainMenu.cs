@@ -8,9 +8,12 @@ public class MainMenu : MonoBehaviour {
         SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex + 1);
     }
 
-    public void OpenOptions()
-    {
-        SceneManager.LoadScene("Option");
+    public void OpenOptions () {
+        SceneManager.LoadScene ("Option");
+    }
+
+    public void OpenStore () {
+        SceneManager.LoadScene ("Store");
     }
 
     public void QuitGame () {

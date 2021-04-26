@@ -8,6 +8,7 @@ public class HolderSpawner : MonoBehaviour {
 
 	//mouse control
 	bool prev_mousedown = false;
+	bool holder_enable = true;
 	int prev_i, prev_j;
 
 	//const
@@ -22,16 +23,16 @@ public class HolderSpawner : MonoBehaviour {
 	//horizontal: initial_i_count
 	//vertical: initial_i_count
 	//vertical: initial_i_count
-	const int initial_i_count = 3;
-	const int initial_j_count = 6;
-	const int initial_s = 32;
-	const int i_count = initial_i_count * initial_s;
-	const int j_count = initial_j_count * initial_s;
+	public int initial_i_count = 3;
+	public int initial_j_count = 6;
+	public int initial_s = 32;
+	public int i_count = 96;
+	public int j_count = 192;
 
 	//holder_info: store the side length of the square to which each pixel belongs
 	//holder_info_temp: used for comparison to reduce repeated changes
-	int[] holder_info = new int[i_count * j_count];
-	int[] holder_info_temp = new int[i_count * j_count];
+	int[] holder_info = new int[40000];
+	int[] holder_info_temp = new int[40000];
 
 	//erase_list: store holder's information for delayed destruction
 	List<int[]> erase_list = new List<int[]> ();
@@ -43,7 +44,7 @@ public class HolderSpawner : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetMouseButton (0)) {
+		if (holder_enable && Input.GetMouseButton (0)) {
 			float mouse_x, mouse_y;
 			int mouse_i, mouse_j;
 
@@ -207,5 +208,13 @@ public class HolderSpawner : MonoBehaviour {
 		holder_Obj = Instantiate (holder_Prefab, new Vector3 (x, y, 0f), Quaternion.identity);
 		holder_Obj.transform.localScale = new Vector3 (s * step, s * step, 1f);
 		holder_Obj.name = "holder_" + s + "_" + i + "_" + j;
+	}
+
+	public void Disable () {
+		holder_enable = false;
+	}
+
+	public void Enable () {
+		holder_enable = true;
 	}
 }

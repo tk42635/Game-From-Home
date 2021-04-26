@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 
 public class BallSpawner : MonoBehaviour {
@@ -7,11 +8,14 @@ public class BallSpawner : MonoBehaviour {
     public GameObject ballPrefab;
     public int numBall;
     public float distance = 1f;
+    public bool is_CMV_cam = false;
     private LevelManager levelManager;
     // Start is called before the first frame update
     void Start () {
         levelManager = FindObjectOfType<LevelManager> ();
         SpawnBall ();
+        if(is_CMV_cam)
+            SetCMVcam();
     }
 
     // Update is called once per frame
@@ -32,5 +36,9 @@ public class BallSpawner : MonoBehaviour {
         levelManager.levelBallExist = numBall;
         levelManager.levelBallArrived = 0;
         levelManager.levelBallMax = numBall;
+    }
+    public void SetCMVcam () {
+        var vcam1 = GameObject.Find ("CM vcam1").GetComponent<CinemachineVirtualCameraBase> ();
+        vcam1.Follow = GameObject.Find ("Ball(Clone)").transform;
     }
 }

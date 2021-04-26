@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour {
     public int score = 0;
-    public int maxlevel = 15;
+    public const int maxlevel = 15;
     public int levelBallExist;
     public int levelBallArrived;
     public int levelBallMax;
@@ -15,10 +15,17 @@ public class LevelManager : MonoBehaviour {
     public static readonly int[] totalScore = { 0, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 10, 0, 0, 10, 3 };
     public GameObject successDialogue;
     public GameObject failureDialogue;
+    public GameObject ItemDialogue;
+    private BagManager bagManager;
+
+    public static bool protectorAvtivated = false, doublerActivated = false, diamondActivated = false;
+
+    public int selectedItemID = -1;
 
     // Start is called before the first frame update
     void Start () {
-
+        int thislevel = int.Parse (SceneManager.GetActiveScene ().name);
+        PlayerPrefs.SetInt ("CurLevel", thislevel);
     }
 
     // Update is called once per frame
@@ -30,15 +37,26 @@ public class LevelManager : MonoBehaviour {
 
     }
     public void LevelDone () {
-        Debug.Log ("Score:" + score);
         int thislevel = int.Parse (SceneManager.GetActiveScene ().name);
         Debug.Log ("thislevel:" + thislevel);
+        if (doublerActivated) {
+            score = score * 2 > requiredScoreToUnlock[thislevel] ? requiredScoreToUnlock[thislevel] : score * 2;
+            doublerActivated = false;
+        }
+        if (diamondActivated) {
+            score = score + 1 > requiredScoreToUnlock[thislevel] ? requiredScoreToUnlock[thislevel] : score + 1;
+            diamondActivated = false;
+        }
 
-        float mainCameraY = GameObject.Find("Main Camera").transform.position.y;
+        Debug.Log ("Score:" + score);
+
+        float mainCameraY = GameObject.Find ("Main Camera").transform.position.y;
         if (levelBallArrived == levelBallMax && score >= requiredScoreToUnlock[thislevel]) {
             UnlockNextLevel (thislevel + 1);
+            GameObject.Find ("HolderSpawner").GetComponent<HolderSpawner> ().Disable ();
             Instantiate (successDialogue, new Vector3 (0, mainCameraY, 0), Quaternion.identity);
         } else {
+            GameObject.Find ("HolderSpawner").GetComponent<HolderSpawner> ().Disable ();
             Instantiate (failureDialogue, new Vector3 (0, mainCameraY, 0), Quaternion.identity);
         }
 
@@ -91,6 +109,11 @@ public class LevelManager : MonoBehaviour {
 
     public void UnlockNextLevel (int NextLevel) {
         PlayerPrefs.SetInt (LevelSelector.LEVEL_REACHED, NextLevel);
+        if (doublerActivated) {
+            PlayerPrefs.SetInt ("Coins", PlayerPrefs.GetInt ("Coins", 0) + 2);
+            doublerActivated = false;
+        } else
+            PlayerPrefs.SetInt ("Coins", PlayerPrefs.GetInt ("Coins", 0) + 1);
     }
 
     public void Restart () {
@@ -101,6 +124,7 @@ public class LevelManager : MonoBehaviour {
         AnalyticsResult levelCompleteEvent = Analytics.CustomEvent(("LevelFailEvent"), levelFail);
 
         SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
+        GameObject.Find ("HolderSpawner").GetComponent<HolderSpawner> ().Enable ();
     }
 
     public void NextLevel () {
@@ -108,10 +132,12 @@ public class LevelManager : MonoBehaviour {
         int nextlevel = thislevel + 1;
         Debug.Log ("nextlevel:" + nextlevel);
         Debug.Log ("maxlevel:" + maxlevel);
-        if (nextlevel <= maxlevel)
-            SceneManager.LoadScene (nextlevel.ToString ());
-        else
-            SceneManager.LoadScene ("Menu");
+        SceneManager.LoadScene ("Store in Level");
+        GameObject.Find ("HolderSpawner").GetComponent<HolderSpawner> ().Enable ();
+        // if (nextlevel <= maxlevel)
+        //     SceneManager.LoadScene (nextlevel.ToString ());
+        // else
+        //     SceneManager.LoadScene ("Menu");
     }
 
     public void BacktoMenu () {
@@ -130,6 +156,60 @@ public class LevelManager : MonoBehaviour {
     public int getTotalScore () {
         int thislevel = int.Parse (SceneManager.GetActiveScene ().name);
         return totalScore[thislevel];
+    }
+
+    public void ActivateItem () {
+        if (selectedItemID == -1) return;
+        Debug.Log ("activated " + selectedItemID);
+        switch (selectedItemID) {
+            case 0:
+                protectorAvtivated = true;
+                break;
+            case 1:
+                break;
+            case 2:
+                doublerActivated = true;
+                break;
+            case 3:
+                DestroyAllBombs ();
+                break;
+            case 4:
+                diamondActivated = true;
+                break;
+            case 5:
+                break;
+        }
+        PlayerPrefs.SetInt ("Item_" + selectedItemID, 0);
+        selectedItemID = -1;
+
+        diamondActivated = true;
+        var tmp = GameObject.Find ("ItemDialogue");
+        GameObject.DestroyImmediate (tmp);
+
+        bagManager = FindObjectOfType<BagManager> ();
+        bagManager.Close ();
+        bagManager.CreateBag ();
+    }
+
+    public void DestroyAllBombs () {
+        var bombs = GameObject.Find ("BombLitSprites");
+        //var tmp = FindObjectOfType<Bomb> ();
+        // foreach (Transform child in bombs) {
+        //     Destroy(child.gameObject);
+        //  }
+        Destroy (bombs);
+    }
+
+    public void OpenItemDialogue (int ItemID) {
+        selectedItemID = ItemID;
+        var tmp = Instantiate (ItemDialogue, new Vector3 (0, 0, 0), Quaternion.identity);
+        tmp.name = "ItemDialogue";
+    }
+
+    public void CloseItemDialogue () {
+        selectedItemID = -1;
+        var tmp = GameObject.Find ("ItemDialogue");
+        GameObject.DestroyImmediate (tmp);
     }
 
 }

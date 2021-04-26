@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -41,17 +42,51 @@ public class LevelManager : MonoBehaviour {
             Instantiate (failureDialogue, new Vector3 (0, mainCameraY, 0), Quaternion.identity);
         }
 
-        string thislevelString = "Level: " + thislevel.ToString ();
 
-        Dictionary<string, object> levelBallArrivalRate = new Dictionary<string, object> () { { thislevelString, ((double) levelBallArrived / levelBallMax) }
+
+        
+
+
+
+        // AnalyticsEvent.LevelComplete (SceneManager.GetActiveScene ().name);
+        
+
+
+
+        // Debug.Log(thislevelDiamondScore + score);
+        // Debug.Log("level number: " + SceneManager.GetActiveScene().name);
+
+        
+
+        string thislevelDiamondScore = "Level: " + thislevel.ToString() + " diamond score";
+        Dictionary<string, object> diamondScoreAnalyticsData = new Dictionary<string, object>
+            {
+                {thislevelDiamondScore, score},
+            };
+
+        AnalyticsResult diamondScoreEvent = Analytics.CustomEvent(("DiamondScoreEvent"), diamondScoreAnalyticsData);
+        Debug.Log("diamond event:" + diamondScoreEvent);
+
+
+
+        string thislevelScoringRate = "Level: " + thislevel.ToString() + " scoring rate";
+        Dictionary<string, object> levelScoringRate = new Dictionary<string, object>() { { thislevelScoringRate, ((double) score / requiredScoreToUnlock[thislevel]) }
         };
-        AnalyticsResult lvlCompBallAR = AnalyticsEvent.LevelComplete ("LevelBallArrivalRate", levelBallArrivalRate);
+        AnalyticsResult diamondScoringRateEvent = Analytics.CustomEvent(("DiamondScoringRateEvent"), levelScoringRate);
 
-        Dictionary<string, object> levelScoringRate = new Dictionary<string, object> () { { thislevelString, ((double) score / requiredScoreToUnlock[thislevel]) }
+
+        string thislevelString = "Level: " + thislevel.ToString();
+        Dictionary<string, object> levelComplete = new Dictionary<string, object>() { { thislevelString,  thislevel.ToString() }
         };
-        AnalyticsResult lvlCompScoreAR = AnalyticsEvent.LevelComplete ("LevelScoringRate", levelScoringRate);
+        AnalyticsResult levelCompleteEvent = Analytics.CustomEvent(("LevelCompleteEvent"), levelComplete);
 
-        AnalyticsEvent.LevelComplete (SceneManager.GetActiveScene ().name);
+
+
+        string thislevelBallAriivalRate = "Level: " + thislevel.ToString() + " ball arrivial rate";
+        Dictionary<string, object> levelBallArrivalRate = new Dictionary<string, object>() { { thislevelBallAriivalRate, ((double) levelBallArrived / levelBallMax) }
+        };
+        AnalyticsResult lvlCompBallAR = AnalyticsEvent.LevelComplete("LevelBallArrivalRateEvent", levelBallArrivalRate);
+
     }
 
     public void UnlockNextLevel (int NextLevel) {
@@ -59,7 +94,12 @@ public class LevelManager : MonoBehaviour {
     }
 
     public void Restart () {
-        AnalyticsEvent.LevelFail (SceneManager.GetActiveScene ().name);
+        int thislevel = int.Parse(SceneManager.GetActiveScene().name);
+        string thislevelString = "Level: " + thislevel.ToString();
+        Dictionary<string, object> levelFail = new Dictionary<string, object>() { { thislevelString,  thislevel.ToString() }
+        };
+        AnalyticsResult levelCompleteEvent = Analytics.CustomEvent(("LevelFailEvent"), levelFail);
+
         SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
     }
 

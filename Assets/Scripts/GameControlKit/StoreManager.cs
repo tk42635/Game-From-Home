@@ -28,7 +28,7 @@ public class StoreManager : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        text.text = "you have " + coins;
+        text.text = ": " + coins;
     }
 
     public void Purchase (int id) {

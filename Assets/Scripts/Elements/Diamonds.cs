@@ -23,6 +23,10 @@ public class Diamonds : MonoBehaviour {
         levelManager.AddScore (diamondValue);
         //AudioSource.PlayClipAtPoint(audioClip, transform.position, 100);
         //audioSource.outputAudioMixerGroup = 
+
+        // audioSource.PlayOneShot(audioClip);
+
         audioSource.PlayOneShot (audioClip);
+
     }
 }

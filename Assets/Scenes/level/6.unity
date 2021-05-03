@@ -158,6 +158,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   holder_Prefab: {fileID: 6217277523767306857, guid: f5ee4aedd916c97408a5e3467af6d81b, type: 3}
+  initial_i_count: 3
+  initial_j_count: 6
+  initial_s: 32
+  i_count: 96
+  j_count: 192
 --- !u!4 &280614163
 Transform:
   m_ObjectHideFlags: 0
@@ -395,7 +400,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -3026215453864855320, guid: 45e3c19d74fbc4007ad981a4536c6969, type: 2}
   m_audioClip: {fileID: 8300000, guid: 5cf49f6d7a29a49ed944126186dd384f, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -701,6 +706,7 @@ MonoBehaviour:
   ballPrefab: {fileID: 4600469180075785985, guid: da54f55d32720e64ba29d30d5a6dfc7d, type: 3}
   numBall: 2
   distance: 1
+  is_CMV_cam: 0
 --- !u!1001 &759872490
 PrefabInstance:
   m_ObjectHideFlags: 0

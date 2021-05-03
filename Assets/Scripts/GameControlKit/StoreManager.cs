@@ -12,6 +12,7 @@ public class StoreManager : MonoBehaviour {
     public int[] price = { 2, 3, 2, 4, 1, 1 };
     public string[] buttonName = { "Protector", "Magic Filler", "Collector", "Magnet", "One-Time Diamond", "Size Changer" };
     public Button[] itemButtons;
+    public GameObject Label;
     public static Text text;
 
     // Start is called before the first frame update
@@ -21,7 +22,12 @@ public class StoreManager : MonoBehaviour {
         haveItem = new bool[6];
         for (int i = 0; i < 6; i++) {
             haveItem[i] = (PlayerPrefs.GetInt ("Item_" + i, 0) == 1);
-            if (haveItem[i]) GameObject.Find (buttonName[i]).GetComponent<Button> ().interactable = false;
+            if (haveItem[i]) {
+                GameObject.Find (buttonName[i]).GetComponent<Button> ().interactable = false;
+                float x = GameObject.Find (buttonName[i]).transform.position.x;
+                float y = GameObject.Find (buttonName[i]).transform.position.y;
+                Instantiate (Label, new Vector3 (x, y, 0), Quaternion.Euler(new Vector3(0, 0, 30)));
+                }
         }
         text = GameObject.Find ("Coins").GetComponent<Text> ();
     }
@@ -32,13 +38,17 @@ public class StoreManager : MonoBehaviour {
     }
 
     public void Purchase (int id) {
-        Button btn = EventSystem.current.currentSelectedGameObject.GetComponent<Button> ();
+        GameObject tmp = EventSystem.current.currentSelectedGameObject;
+        Button btn = tmp.GetComponent<Button> ();
         if (coins >= price[id]) {
             coins -= price[id];
             haveItem[id] = true;
             PlayerPrefs.SetInt ("Coins", coins);
             PlayerPrefs.SetInt ("Item_" + id, 1);
             btn.interactable = false;
+            float x = tmp.transform.position.x;
+            float y = tmp.transform.position.y;
+            Instantiate (Label, new Vector3 (x, y, 0), Quaternion.Euler(new Vector3(0, 0, 30)));
             Debug.Log ("Successful to purchase");
         } else {
             Debug.Log ("Failed to purchase");

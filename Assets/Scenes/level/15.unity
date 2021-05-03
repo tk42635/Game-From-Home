@@ -130,6 +130,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 519420032}
     m_Modifications:
+    - target: {fileID: 6939856203404507401, guid: 83a4b92c353f20a4e9d1914c9ab1b834, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6939856203404507401, guid: 83a4b92c353f20a4e9d1914c9ab1b834, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 7148721104923090133, guid: 83a4b92c353f20a4e9d1914c9ab1b834, type: 3}
       propertyPath: m_SortingOrder
       value: 3
@@ -188,6 +196,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83a4b92c353f20a4e9d1914c9ab1b834, type: 3}
+--- !u!224 &119629634 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6939856203404507401, guid: 83a4b92c353f20a4e9d1914c9ab1b834, type: 3}
+  m_PrefabInstance: {fileID: 119629633}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &124382510
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -482,11 +495,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aab2807c3d4a8c8469e92e3185bc37f7, type: 3}
---- !u!4 &326566187 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7148721105596985462, guid: 83a4b92c353f20a4e9d1914c9ab1b834, type: 3}
-  m_PrefabInstance: {fileID: 119629633}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &327469421 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6251064972445658935, guid: 04f26c0df1e781a4f8f6477058b87e41, type: 3}
@@ -886,10 +894,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.00034809113, y: 10.011479, z: -10}
+  m_LocalPosition: {x: -0.0003490448, y: 10.0119915, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 326566187}
+  - {fileID: 119629634}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2608,7 +2616,10 @@ MonoBehaviour:
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
+    ModeOverride: 0
     LensShift: {x: 0, y: 0}
+    GateFit: 0
+    m_SensorSize: {x: 0.46205357, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0

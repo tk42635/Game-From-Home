@@ -22,7 +22,10 @@ public class BagManager : MonoBehaviour {
 
     public void OnMouseDown () {
         if (!EventSystem.current.IsPointerOverGameObject ())
+        {
+            //Debug.Log (EventSystem.current.currentSelectedGameObject.gameObject.name);
             CreateBag ();
+        }
     }
 
     public void CreateBag () {

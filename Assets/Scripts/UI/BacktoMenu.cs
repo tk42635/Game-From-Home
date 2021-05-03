@@ -17,7 +17,7 @@ public class BacktoMenu : MonoBehaviour {
 
     public void OnMouseDown () {
         if (!EventSystem.current.IsPointerOverGameObject ()) {
-            Debug.Log ("restart current level");
+            Debug.Log ("Back to menu");
             levelManager.BacktoMenu ();
         }
 

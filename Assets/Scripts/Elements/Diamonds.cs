@@ -11,6 +11,7 @@ public class Diamonds : MonoBehaviour {
     void Start () {
         levelManager = FindObjectOfType<LevelManager> ();
         audioClip = Resources.Load<AudioClip> (ResourcesPath.DIAMONDS_AUDIO_PATH);
+        Debug.Log(audioClip);
     }
 
     // Update is called once per frame
@@ -21,12 +22,7 @@ public class Diamonds : MonoBehaviour {
     void OnTriggerEnter2D (Collider2D other) {
         Destroy (gameObject);
         levelManager.AddScore (diamondValue);
-        //AudioSource.PlayClipAtPoint(audioClip, transform.position, 100);
-        //audioSource.outputAudioMixerGroup = 
-
-        // audioSource.PlayOneShot(audioClip);
-
-        audioSource.PlayOneShot (audioClip);
-
+        AudioSource.PlayClipAtPoint(audioClip, transform.position, 100);
+        
     }
 }

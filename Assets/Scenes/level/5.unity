@@ -153,6 +153,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   holder_Prefab: {fileID: 6217277523767306857, guid: f5ee4aedd916c97408a5e3467af6d81b, type: 3}
+  holder_enable: 1
+  holder_firstline: 0
   initial_i_count: 3
   initial_j_count: 6
   initial_s: 32

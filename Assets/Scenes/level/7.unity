@@ -290,11 +290,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   holder_Prefab: {fileID: 6217277523767306857, guid: f5ee4aedd916c97408a5e3467af6d81b, type: 3}
-  initial_i_count: 3
-  initial_j_count: 6
-  initial_s: 32
-  i_count: 96
-  j_count: 192
 --- !u!4 &280614163
 Transform:
   m_ObjectHideFlags: 0
@@ -754,7 +749,6 @@ MonoBehaviour:
   ballPrefab: {fileID: 4600469180075785985, guid: da54f55d32720e64ba29d30d5a6dfc7d, type: 3}
   numBall: 1
   distance: 1
-  is_CMV_cam: 0
 --- !u!21 &696265743
 Material:
   serializedVersion: 6

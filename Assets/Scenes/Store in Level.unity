@@ -1992,6 +1992,7 @@ MonoBehaviour:
   - Size Changer
   itemButtons: []
   Label: {fileID: 2363441557543916630, guid: b25d83648ffd5de4fa4fbce866e8ec98, type: 3}
+  Label2: {fileID: 2363441557543916630, guid: 1d13f332ac814cd44bdec455ad1bf8d0, type: 3}
 --- !u!4 &996653089
 Transform:
   m_ObjectHideFlags: 0

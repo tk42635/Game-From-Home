@@ -12,7 +12,7 @@ public class StoreManager : MonoBehaviour {
     public int[] price = { 2, 3, 2, 4, 1, 1 };
     public string[] buttonName = { "Protector", "Magic Filler", "Collector", "Magnet", "One-Time Diamond", "Size Changer" };
     public Button[] itemButtons;
-    public GameObject Label;
+    public GameObject Label, Label2;
     public static Text text;
 
     // Start is called before the first frame update
@@ -30,6 +30,16 @@ public class StoreManager : MonoBehaviour {
                 }
         }
         text = GameObject.Find ("Coins").GetComponent<Text> ();
+        GameObject mf = GameObject.Find ("Magic Filler");
+        float mf_x = mf.transform.position.x;
+        float mf_y = mf.transform.position.y;
+        mf.GetComponent<Button> ().interactable = false;
+        GameObject sc = GameObject.Find ("Size Changer");
+        float sc_x = sc.transform.position.x;
+        float sc_y = sc.transform.position.y;
+        sc.GetComponent<Button> ().interactable = false;
+        Instantiate (Label2, new Vector3 (mf_x, mf_y, 0), Quaternion.Euler(new Vector3(0, 0, 30)));
+        Instantiate (Label2, new Vector3 (sc_x, sc_y, 0), Quaternion.Euler(new Vector3(0, 0, 30)));
     }
 
     // Update is called once per frame

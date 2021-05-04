@@ -14,6 +14,17 @@ public class Plank : MonoBehaviour {
 
     }
 
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("onCollisionEnter2D");
+        Rigidbody2D RIG = collision.gameObject.GetComponent<Rigidbody2D>();
+        if (Mathf.Abs(RIG.velocity.y) > 0.1f)
+        {
+            AudioSource.PlayClipAtPoint(audioClip, transform.position, 100);
+        }
+    }
+    
+
     void OnCollisionStay2D (Collision2D other) {
         Rigidbody2D RIG = other.gameObject.GetComponent<Rigidbody2D> ();
         // Debug.Log("Collision!");
@@ -23,9 +34,7 @@ public class Plank : MonoBehaviour {
             else
                 RIG.velocity = new Vector3 (-0.1f, 0, 0);
         }
-        if (Mathf.Abs (RIG.velocity.y) > 0.1f) { 
-            AudioSource.PlayClipAtPoint(audioClip, transform.position, 100);
-        }
+        
 
     }
 }

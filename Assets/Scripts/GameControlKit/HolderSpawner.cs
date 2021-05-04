@@ -8,7 +8,8 @@ public class HolderSpawner : MonoBehaviour {
 
 	//mouse control
 	bool prev_mousedown = false;
-	bool holder_enable = true;
+	public int holder_enable = 0;
+	public bool holder_firstline = false;
 	int prev_i, prev_j;
 
 	//const
@@ -44,7 +45,7 @@ public class HolderSpawner : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (holder_enable && Input.GetMouseButton (0)) {
+		if (holder_enable == 0 && Input.GetMouseButton (0)) {
 			float mouse_x, mouse_y;
 			int mouse_i, mouse_j;
 
@@ -184,12 +185,16 @@ public class HolderSpawner : MonoBehaviour {
 	public void SpawnAllHolder () {
 		for (int i = 0; i < i_count; i += initial_s) {
 			for (int j = 0; j < j_count; j += initial_s) {
-				SpawnHolder (initial_s, i, j);
+				if (!holder_firstline || j == j_count - initial_s)
+					SpawnHolder (initial_s, i, j);
 			}
 		}
 		for (int i = 0; i < i_count; i++) {
 			for (int j = 0; j < j_count; j++) {
-				holder_info[i + j * i_count] = initial_s;
+				if (!holder_firstline || j > j_count - initial_s)
+					holder_info[i + j * i_count] = initial_s;
+				else
+					holder_info[i + j * i_count] = 0;
 			}
 		}
 		holder_info.CopyTo (holder_info_temp, 0);
@@ -211,10 +216,10 @@ public class HolderSpawner : MonoBehaviour {
 	}
 
 	public void Disable () {
-		holder_enable = false;
+		holder_enable++;
 	}
 
 	public void Enable () {
-		holder_enable = true;
+		holder_enable--;
 	}
 }

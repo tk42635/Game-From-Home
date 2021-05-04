@@ -1514,6 +1514,7 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
     - PixelSnap: 0
     - _EnableExternalAlpha: 0
@@ -1695,6 +1696,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 269425661433512318, guid: 83a4b92c353f20a4e9d1914c9ab1b834, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5945919547123129042, guid: 83a4b92c353f20a4e9d1914c9ab1b834, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6939856203404507401, guid: 83a4b92c353f20a4e9d1914c9ab1b834, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7148721104415047721, guid: 83a4b92c353f20a4e9d1914c9ab1b834, type: 3}
       propertyPath: ItemDialogue
       value: 
@@ -1717,11 +1730,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7148721104923090132, guid: 83a4b92c353f20a4e9d1914c9ab1b834, type: 3}
       propertyPath: m_Layer
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7148721105387390706, guid: 83a4b92c353f20a4e9d1914c9ab1b834, type: 3}
       propertyPath: m_Layer
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7148721105596985461, guid: 83a4b92c353f20a4e9d1914c9ab1b834, type: 3}
       propertyPath: m_Name
@@ -1729,7 +1742,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7148721105596985461, guid: 83a4b92c353f20a4e9d1914c9ab1b834, type: 3}
       propertyPath: m_Layer
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7148721105596985462, guid: 83a4b92c353f20a4e9d1914c9ab1b834, type: 3}
       propertyPath: m_RootOrder
@@ -2159,6 +2172,7 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
     - PixelSnap: 0
     - _EnableExternalAlpha: 0
@@ -2333,6 +2347,7 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
     - PixelSnap: 0
     - _EnableExternalAlpha: 0
@@ -2372,6 +2387,7 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
     - PixelSnap: 0
     - _EnableExternalAlpha: 0

@@ -24,7 +24,10 @@ public class BagManager : MonoBehaviour {
     public void OnMouseDown () {
         AudioSource.PlayClipAtPoint(audioClip, transform.position, 100);
         if (!EventSystem.current.IsPointerOverGameObject ())
+        {
+            //Debug.Log (EventSystem.current.currentSelectedGameObject.gameObject.name);
             CreateBag ();
+        }
     }
 
     public void CreateBag () {

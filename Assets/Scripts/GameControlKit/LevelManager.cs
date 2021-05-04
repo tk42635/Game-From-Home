@@ -11,8 +11,8 @@ public class LevelManager : MonoBehaviour {
     public int levelBallExist;
     public int levelBallArrived;
     public int levelBallMax;
-    public static readonly int[] requiredScoreToUnlock = { 0, 3, 3, 3, 3, 3, 1, 2, 3, 3, 3, 6, 0, 0, 6, 2 };
-    public static readonly int[] totalScore = { 0, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 10, 0, 0, 10, 3 };
+    public static readonly int[] requiredScoreToUnlock = { 0, 3, 3, 3, 3, 3, 3, 2, 3, 3, 1, 6, 3, 3, 6, 2 };
+    public static readonly int[] totalScore = { 0, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 10, 3, 3, 10, 3 };
     public GameObject successDialogue;
     public GameObject failureDialogue;
     public GameObject ItemDialogue;

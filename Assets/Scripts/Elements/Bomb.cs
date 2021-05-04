@@ -28,6 +28,11 @@ public class Bomb : MonoBehaviour {
             // if (levelManager.levelBallExist == 0)
             levelManager.LevelDone ();
         } else
+        {
+            Destroy (gameObject);
+            AudioSource.PlayClipAtPoint (boomAudioClip, transform.position, 100);
+            AudioSource.PlayClipAtPoint (gameOverAudioClip, transform.position, 100);
             LevelManager.protectorAvtivated = false;
+        }
     }
 }

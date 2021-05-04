@@ -28,7 +28,7 @@ public class Boost : MonoBehaviour {
 
         Rigidbody2D RIG = other.GetComponent<Rigidbody2D> ();
         other.transform.position = transform.position;
-        RIG.gravityScale = 0;
+        RIG.gravityScale = 0.1f;
         //RIG.AddForce (new Vector3 (0, 9.81f, 0), ForceMode2D.Force);
         RIG.velocity = new Vector3 (2, 0, 0);
         // RIG.AddForce (new Vector3 (5, 0, 0), ForceMode2D.Impulse);

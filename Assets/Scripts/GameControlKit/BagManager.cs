@@ -11,8 +11,9 @@ public class BagManager : MonoBehaviour {
     public GameObject[] BagElement;
     public Dictionary<int, Vector3> loc = new Dictionary<int, Vector3> () { { 0, new Vector3 (-230, 200, 0) }, { 1, new Vector3 (0, 200, 0) }, { 2, new Vector3 (230, 200, 0) }, { 3, new Vector3 (-230, -200, 0) }, { 4, new Vector3 (0, -200, 0) }, { 5, new Vector3 (230, -200, 0) },
     };
+    public AudioClip audioClip;
     void Start () {
-
+        audioClip = Resources.Load<AudioClip>(ResourcesPath.WHOOSH_PATH);
     }
 
     // Update is called once per frame
@@ -21,6 +22,7 @@ public class BagManager : MonoBehaviour {
     }
 
     public void OnMouseDown () {
+        AudioSource.PlayClipAtPoint(audioClip, transform.position, 100);
         if (!EventSystem.current.IsPointerOverGameObject ())
         {
             //Debug.Log (EventSystem.current.currentSelectedGameObject.gameObject.name);

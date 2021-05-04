@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Plank : MonoBehaviour {
     // Start is called before the first frame update
+    public AudioClip audioClip;
     void Start () {
-
+        audioClip = Resources.Load<AudioClip>(ResourcesPath.HIT_PLANK_AUDIO_PATH);
     }
 
     // Update is called once per frame
@@ -21,6 +22,9 @@ public class Plank : MonoBehaviour {
                 RIG.velocity = new Vector3 (0.1f, 0, 0);
             else
                 RIG.velocity = new Vector3 (-0.1f, 0, 0);
+        }
+        if (Mathf.Abs (RIG.velocity.y) > 0.1f) { 
+            AudioSource.PlayClipAtPoint(audioClip, transform.position, 100);
         }
 
     }

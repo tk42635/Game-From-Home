@@ -5,8 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class BacktoMainMenu : MonoBehaviour {
     // Start is called before the first frame update
+    public AudioClip audioClip;
     void Start () {
-
+        audioClip = Resources.Load<AudioClip>(ResourcesPath.CLICK_PATH);
     }
 
     // Update is called once per frame
@@ -15,6 +16,7 @@ public class BacktoMainMenu : MonoBehaviour {
     }
 
     public void OnMouseDown () {
+        AudioSource.PlayClipAtPoint(audioClip, transform.position, 100);
         SceneManager.LoadScene ("Menu");
     }
 }

@@ -202,7 +202,7 @@ public class LevelManager : MonoBehaviour {
 
     public void OpenItemDialogue (int ItemID) {
         selectedItemID = ItemID;
-        var tmp = Instantiate (ItemDialogue, new Vector3 (0, 0, 0), Quaternion.identity);
+        var tmp = Instantiate (ItemDialogue, new Vector3 (0, 0, -1), Quaternion.identity);
         tmp.name = "ItemDialogue";
     }
 

@@ -36,6 +36,6 @@ public class AudioManager : MonoBehaviour {
 
     //scale from float to db
     private float getVolume (float value) {
-        return 40 * value - 20;
+        return 60 * value - 40;
     }
 }

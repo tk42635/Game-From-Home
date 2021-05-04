@@ -182,7 +182,6 @@ public class LevelManager : MonoBehaviour {
         PlayerPrefs.SetInt ("Item_" + selectedItemID, 0);
         selectedItemID = -1;
 
-        diamondActivated = true;
         var tmp = GameObject.Find ("ItemDialogue");
         GameObject.DestroyImmediate (tmp);
 
